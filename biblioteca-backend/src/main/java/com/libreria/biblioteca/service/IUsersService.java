@@ -1,13 +1,13 @@
 package com.libreria.biblioteca.service;
 
-import com.libreria.biblioteca.models.Books;
+import com.libreria.biblioteca.models.Users;
 
 import java.util.List;
 
 public interface IUsersService {
-    public List<Books> traerUsers();
+    public List<Users> traerUsers();
 
-    public void crearUsers(Books usuario);
+    public void crearUsers(Users usuario);
 
-    public void bajarUsers(Long id);
+    public void bajarUsers(Integer id);
 }
