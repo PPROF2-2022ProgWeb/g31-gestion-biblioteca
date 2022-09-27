@@ -17,6 +17,8 @@ import { LibrosComponent } from './component/libros/libros.component';
 import { PrestamosComponent } from './component/prestamos/prestamos.component';
 import { DevolucionesComponent } from './component/devoluciones/devoluciones.component';
 import { ReportesComponent } from './component/reportes/reportes.component';
+import { NuevoUsuarioComponent } from './component/nuevo-usuario/nuevo-usuario.component';
+import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ReportesComponent } from './component/reportes/reportes.component';
     LibrosComponent,
     PrestamosComponent,
     DevolucionesComponent,
-    ReportesComponent
+    ReportesComponent,
+    NuevoUsuarioComponent,
+    NuevoLibroComponent
   ],
   imports: [
     BrowserModule,
