@@ -1,0 +1,30 @@
+.botonEstilo{
+  background-color: rgb( 13, 71, 161);
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+}
+.botonEstilo:hover {
+  background-color: rgb( 13, 71, 161);
+  color: black;
+  font-size: 28px;
+  font-weight: 500;
+}
+.inputPosition{
+margin-top: 40px;
+margin-bottom: 10px;
+}
+.textCampos {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.nuevoUsuario{
+  font-size: 30px;
+  font-weight: 600;
+}
+.itemsThree{
+  margin-left: 50px;
+}

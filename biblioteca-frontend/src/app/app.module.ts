@@ -20,6 +20,7 @@ import { ReportesComponent } from './component/reportes/reportes.component';
 import { NuevoUsuarioComponent } from './component/nuevo-usuario/nuevo-usuario.component';
 import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.compone
     DevolucionesComponent,
     ReportesComponent,
     NuevoUsuarioComponent,
-    NuevoLibroComponent
+    NuevoLibroComponent,
   ],
   imports: [
     BrowserModule,
