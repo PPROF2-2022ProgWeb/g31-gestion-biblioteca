@@ -2,39 +2,38 @@
 <h1 class="nuevoUsuario">Registrar Nuevo Usuario</h1>
 <br>
 <!--INICIO Formulario-->
-<form class="container-fluid text-center m-2 mt-4">
+<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" class="container-fluid text-center m-2 mt-4">
   <div class="form-row row justify-content-around">
     <div class="form-group col-4">
       <label for="inputNombre" class="textCampos">Nombre</label>
-      <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese el Nombre">
+      <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Ingrese el Nombre" ngModel>
     </div>
     <div class="form-group col-4">
       <label for="inputDireccion" class="textCampos">Domicilio</label>
-      <input type="text" class="form-control" id="inputDireccion" placeholder="Ingrese el Domicilio">
+      <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" placeholder="Ingrese el Domicilio"ngModel>
     </div>
   </div>
   <div class="form-row row justify-content-around">
     <div class="form-group col-4 inputPosition">
       <label for="inputApellido" class="textCampos">Apellido Paterno</label>
-      <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese el Apellido Paterno">
+      <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Ingrese el Apellido Paterno"ngModel>
     </div>
     <div class="form-group col-4 inputPosition">
       <label for="inputTelefono" class="textCampos">Teléfono</label>
-      <input type="number" class="form-control" id="inputTelefono" placeholder="Ingrese el Teléfono">
+      <input type="number" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="Ingrese el Teléfono"ngModel>
     </div>
   </div>
   <div class="form-row row justify-content-around">
     <div class="form-group col-4 inputPosition">
-      <label for="inputApellido" class="textCampos">Apellido Materno</label>
-      <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese el Apellido Materno">
+      <label for="inputApellido1" class="textCampos">Apellido Materno</label>
+      <input type="text" class="form-control" id="inputApellido1" name="inputApellido1" placeholder="Ingrese el Apellido Materno"ngModel>
     </div>
     <div class="col-4 inputPosition d-grid gap-2">
-    <button type="submit" class="btn botonEstilo">Registrar</button>
+    <button type="submit" value ="submit" class="btn botonEstilo">Registrar</button>
     </div>
   </div>
   
 </form>
- 
 <!--FIN Formulario-->
 </div>
 
