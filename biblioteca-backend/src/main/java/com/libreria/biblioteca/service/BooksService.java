@@ -25,6 +25,6 @@ public class BooksService implements IBooksService{
 
     @Override
     public void bajarBooks(Integer id){
-        booksRepository.deleteById();
+        booksRepository.deleteById(Long.valueOf(id));
     }
 }

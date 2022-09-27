@@ -1,10 +1,12 @@
 package com.libreria.biblioteca.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter @Setter
+@Entity
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -93,5 +95,19 @@ public class Users {
 
     public void setSanc_money(Integer sanc_money) {
         this.sanc_money = sanc_money;
+    }
+
+
+    public Users(){}
+
+    public Users(Integer id, String nombre, String domicilio, Integer sanctions, Integer sanc_money, String last_name_m, String telefono, String last_name_p){
+        this.name=nombre;
+        this.domicilio=domicilio;
+        this.sanctions=sanctions;
+        this.tel=telefono;
+        this.sanc_money=sanc_money;
+        this.last_name_m=last_name_m;
+        this.last_name_p=last_name_p;
+        this.id=id;
     }
 }
