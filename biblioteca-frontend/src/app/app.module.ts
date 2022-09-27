@@ -11,11 +11,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PrincipalComponent } from './component/principal/principal.component';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { LibrosComponent } from './component/libros/libros.component';
+import { PrestamosComponent } from './component/prestamos/prestamos.component';
+import { DevolucionesComponent } from './component/devoluciones/devoluciones.component';
+import { ReportesComponent } from './component/reportes/reportes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PrincipalComponent,
+    UsuariosComponent,
+    LibrosComponent,
+    PrestamosComponent,
+    DevolucionesComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
