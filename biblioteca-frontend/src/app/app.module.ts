@@ -19,6 +19,7 @@ import { DevolucionesComponent } from './component/devoluciones/devoluciones.com
 import { ReportesComponent } from './component/reportes/reportes.component';
 import { NuevoUsuarioComponent } from './component/nuevo-usuario/nuevo-usuario.component';
 import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.compone
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
