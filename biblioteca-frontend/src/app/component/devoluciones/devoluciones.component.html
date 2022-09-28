@@ -1,1 +1,31 @@
-<p>devoluciones works!</p>
+<section class="container-fluid m-2 mt-4">
+    <div class="row gap-4">
+        <div class="col-md-6 text-center">
+            <h1>Devolucion Libro</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid row">
+            <div class="col-md-6 fs-5 lh-sm">
+                <form class="container-fluid text-center m-2 mt-4">
+                    <div class="form-row row justify-content-around">
+                      <div class="form-group mb-3">
+                        <label for="inputNombre" class="textCampos">Identificador usuario</label>
+                        <input type="text" class="form-control" id="inputIdUsuario" name="inputIdUsuario" placeholder="Ingrese el Identificador del usuario" ngModel>
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="inputDireccion" class="textCampos">Identificador libro</label>
+                        <input type="text" class="form-control" id="inputIdLibro" name="inputIdLibro" placeholder="Ingrese el Identificador del libro a devolver"ngModel>
+                      </div>
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                      <button type="submit" value ="submit" class="btn btn-primary">Devolver</button>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="col-md-6 container-fluid col text-center">
+                <img src="../../../assets/biblioteca5.png" class="img-fluid img-thumbnail">
+            </div>
+        </div>
+    </div>
+</section>
