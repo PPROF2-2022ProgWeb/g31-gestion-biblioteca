@@ -1,10 +1,13 @@
 package com.libreria.biblioteca.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
+@Entity
 public class Lendings {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,19 +19,17 @@ public class Lendings {
     @Column(name="book_id", nullable = false)
     private Integer book_id = 0;
 
-    @Column(name = "date_out", nullable = false)
+    @Column(name = "date_out", nullable = true)
     private String date_out;
 
-    @Column(name = "date_return", nullable = false)
+    @Column(name = "date_return", nullable = true)
     private   String date_return;
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+
 
     public Integer getUser_id() {
         return user_id;
@@ -61,4 +62,16 @@ public class Lendings {
     public void setDate_return(String date_return) {
         this.date_return = date_return;
     }
+
+    public Lendings(){}
+
+    public Lendings(Integer id, Integer book_id, String devol, String date_out, Integer user_id){
+        this.id=id;
+        this.book_id=book_id;
+        this.date_return=devol;
+        this.date_out=date_out;
+        this.user_id=user_id;
+    }
+
+
 }

@@ -1,23 +1,25 @@
 package com.libreria.biblioteca.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Proxy;
 
+import javax.persistence.*;
+import java.util.Optional;
+
+@Getter @Setter
+@Entity
+@Proxy(lazy=false)
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "last_name_p", nullable = false)
-    private String last_name_p;
-
-    @Column(name = "last_name_m", nullable = false)
-    private String last_name_m;
+    @Column(name = "last_name", nullable = false)
+    private String last_name;
 
     @Column(name = "domicilio", nullable = true)
     private String domicilio;
@@ -31,14 +33,6 @@ public class Users {
     @Column(name="sanc_money", nullable = false)
     private Integer sanc_money = 0;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -47,20 +41,12 @@ public class Users {
         this.name = name;
     }
 
-    public String getLast_name_p() {
-        return last_name_p;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLast_name_p(String last_name_p) {
-        this.last_name_p = last_name_p;
-    }
-
-    public String getLast_name_m() {
-        return last_name_m;
-    }
-
-    public void setLast_name_m(String last_name_m) {
-        this.last_name_m = last_name_m;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getDomicilio() {
@@ -93,5 +79,18 @@ public class Users {
 
     public void setSanc_money(Integer sanc_money) {
         this.sanc_money = sanc_money;
+    }
+
+
+    public Users(){}
+
+    public Users(Long id, String nombre, String domicilio, Integer sanctions, Integer sanc_money, String last_name, String telefono){
+        this.name=nombre;
+        this.domicilio=domicilio;
+        this.sanctions=sanctions;
+        this.tel=telefono;
+        this.sanc_money=sanc_money;
+        this.last_name=last_name;
+        this.id=id;
     }
 }

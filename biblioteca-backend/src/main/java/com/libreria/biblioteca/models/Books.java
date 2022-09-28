@@ -1,14 +1,17 @@
 package com.libreria.biblioteca.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
+@Entity
 public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -37,18 +40,11 @@ public class Books {
     @Column(name = "ejemplares", nullable = false)
     private String ejemplares;
 
-    @Column(name = "stock", nullable = false)
-    private Integer sanctions;
-
     @Column(name="available", nullable = false)
     private Integer available;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -123,19 +119,28 @@ public class Books {
         this.ejemplares = ejemplares;
     }
 
-    public Integer getSanctions() {
-        return sanctions;
-    }
-
-    public void setSanctions(Integer sanctions) {
-        this.sanctions = sanctions;
-    }
-
     public Integer getAvailable() {
         return available;
     }
 
     public void setAvailable(Integer available) {
         this.available = available;
+    }
+
+    public Books(){}
+
+    public Books(Long id, String nombre, String autor, String date, String edit, Integer disp, String categoria, String descripcion, String ejemplares, String lang, String pages){
+        this.id=id;
+        this.title=nombre;
+        this.author=autor;
+        this.date=date;
+        this.edit=edit;
+        this.available=disp;
+        this.category=categoria;
+        this.description=descripcion;
+        this.ejemplares=ejemplares;
+        this.lang=lang;
+        this.pages=pages;
+
     }
 }
