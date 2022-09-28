@@ -40,13 +40,10 @@ public class Books {
     @Column(name = "ejemplares", nullable = false)
     private String ejemplares;
 
-    @Column(name = "stock", nullable = false)
-    private Integer sanctions;
-
     @Column(name="available", nullable = false)
     private Integer available;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

@@ -4,6 +4,7 @@ import com.libreria.biblioteca.models.Books;
 import com.libreria.biblioteca.models.Users;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IBooksService {
     public List<Books> traerBooks();
@@ -11,4 +12,8 @@ public interface IBooksService {
     public void crearBooks(Books libro);
 
     public void bajarBooks(Integer id);
+
+    public Optional<Books> traerLibro(Long id);
+
+    public void updateBook(Books b);
 }

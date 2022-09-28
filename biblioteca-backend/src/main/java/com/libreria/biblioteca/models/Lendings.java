@@ -19,10 +19,10 @@ public class Lendings {
     @Column(name="book_id", nullable = false)
     private Integer book_id = 0;
 
-    @Column(name = "date_out", nullable = false)
+    @Column(name = "date_out", nullable = true)
     private String date_out;
 
-    @Column(name = "date_return", nullable = false)
+    @Column(name = "date_return", nullable = true)
     private   String date_return;
 
     public Integer getId() {
@@ -73,5 +73,8 @@ public class Lendings {
         this.date_return=devol;
         this.date_out=date_out;
         this.user_id=user_id;
+    }
+
+    public void ifPresent(Object o) {
     }
 }

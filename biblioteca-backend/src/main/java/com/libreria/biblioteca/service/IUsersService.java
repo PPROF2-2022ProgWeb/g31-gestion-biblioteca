@@ -15,4 +15,8 @@ public interface IUsersService {
     public void bajarUsers(Integer id);
 
     public Optional<Users> buscarUser(Integer id);
+
+    public void updateUser(Users u);
+
+    public Optional<Users> buscarUserName(String nombre);
 }

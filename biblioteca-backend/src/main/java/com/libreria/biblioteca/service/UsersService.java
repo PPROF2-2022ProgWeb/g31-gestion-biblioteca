@@ -36,4 +36,28 @@ public class UsersService implements IUsersService{
 
     }
 
+    @Override
+    public Optional<Users> buscarUserName(String nombre){
+        return Optional.ofNullable(userRepo.findByName(nombre));
+
+    }
+
+
+    @Override
+    public void updateUser(Users u) {
+        userRepo
+                .findById(u.getId()) // returns Optional<User>
+                .ifPresent(user1 -> {
+                    user1.setName(u.getName());
+                    user1.setDomicilio(u.getDomicilio());
+                    user1.setLast_name(u.getLast_name());
+                    user1.setTel(u.getTel());
+                    user1.setSanctions(u.getSanctions());
+                    user1.setSanc_money((u.getSanc_money()));
+
+                    userRepo.save(user1);
+                });
+    }
+
+
 }
