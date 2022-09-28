@@ -19,6 +19,12 @@ import { DevolucionesComponent } from './component/devoluciones/devoluciones.com
 import { ReportesComponent } from './component/reportes/reportes.component';
 import { NuevoUsuarioComponent } from './component/nuevo-usuario/nuevo-usuario.component';
 import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.component';
+//tablas
+import { MatTableModule } from '@angular/material/table';
+import {FormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 @NgModule({
@@ -43,7 +49,13 @@ import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.compone
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    //material tablas
+    MatTableModule,
+    MatInputModule,
+    //paginador
+    MatPaginatorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
