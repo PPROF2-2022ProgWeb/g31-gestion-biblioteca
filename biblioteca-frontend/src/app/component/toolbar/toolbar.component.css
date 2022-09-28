@@ -1,0 +1,64 @@
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.toolbarTop, .toolbarLeft {
+  background-color: rgb( 13, 71, 161);
+  color: white;
+}
+
+.iconTopLeft{
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: -10px;
+}
+
+.iconTopLeft, .optMenu, .iconMenu {
+  color: white;
+}
+
+.lineaSeparadora {
+border: 1px solid;
+max-width: 120px;
+margin-left: 40px;
+margin-bottom: 40px;
+}
+
+.optMenu{
+  margin-left: 20px;
+}
+
+.iconMenu{
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.primerTitulo{
+  padding-left: 70px;
+  padding-top: 25px;
+  font-weight: 500;
+}
+
+.fechaTitulo{
+  padding-left: 70px;
+  padding-bottom: 10px;
+  font-weight: 400;
+  font-size: 24px;
+}
