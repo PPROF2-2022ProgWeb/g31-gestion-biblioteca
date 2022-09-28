@@ -1,0 +1,20 @@
+/* clase de boton de marcos */
+.botonEstilo{
+    background-color: rgb( 13, 71, 161);
+    color: white;
+    font-size: 28px;
+    font-weight: 500;
+  }
+.botonEstilo:hover {
+    background-color: rgb( 13, 71, 161);
+    color: black;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+
+/* css del template de la tabla */
+  table {
+    width: 100%;
+    margin:1rem auto;
+ }

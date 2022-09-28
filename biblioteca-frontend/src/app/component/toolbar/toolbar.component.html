@@ -1,0 +1,91 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav toolbarLeft" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="iconTopLeft">iLib</mat-toolbar>
+    <div class="lineaSeparadora"></div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/principal" ><span class="material-icons iconMenu">
+        home
+        </span><span class="optMenu">Principal</span> </a>
+
+      <a mat-list-item routerLink="/usuarios"><span class="material-icons iconMenu">
+        people_alt
+        </span><span class="optMenu">Usuarios</span></a>
+
+      <a mat-list-item routerLink="/libros"><span class="material-icons iconMenu">
+        auto_stories
+        </span><span class="optMenu">Libros</span></a>
+
+      <a mat-list-item routerLink="/prestamos"><span class="material-icons iconMenu">
+        assignment_add
+        </span><span class="optMenu">Préstamos</span></a>
+
+      <a mat-list-item routerLink="/devoluciones"><span class="material-icons iconMenu">
+        playlist_add_check_circle
+        </span><span class="optMenu">Devoluciones</span></a>
+
+      <a mat-list-item routerLink="/reportes"><span class="material-icons iconMenu">
+        plagiarism
+        </span><span class="optMenu">Reportes</span></a>
+
+        <!--TEST-->
+
+        <a mat-list-item routerLink="/nuevo-usuario" routerLinkActive="is-active"><span class="material-icons iconMenu">
+          plagiarism
+          </span><span class="optMenu">Nuevo Usuario</span></a>
+
+          <a mat-list-item routerLink="/nuevo-libro"><span class="material-icons iconMenu">
+            plagiarism
+            </span><span class="optMenu">Nuevo Libro</span></a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <div class="container-fluid toolbarTop">  
+      <div class="row"> 
+        <button class="col-md-2"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+        <div class="col-md-12">
+          <h4 class="primerTitulo">Administración/Control/Biblioteca</h4>
+        </div>
+        <div class="col-12">
+          <h2 class="fechaTitulo">Hoy es 27 de Septiembre de 2022</h2>
+        </div>
+      </div>
+      <!--
+    <mat-toolbar class="toolbarTop">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      
+      <div class="container-fluid">
+        <div class="row"> 
+          <div class="col-12">
+            <h4 class="primerTitulo">Administración/Control/Biblioteca</h4>
+          </div>
+          <div class="col-12">
+            <h2 class="fechaTitulo">Hoy es 27 de Septiembre de 2022</h2>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>-->
+  </div>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

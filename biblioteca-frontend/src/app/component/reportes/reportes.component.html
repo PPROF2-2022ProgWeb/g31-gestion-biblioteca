@@ -1,0 +1,50 @@
+<section class="container-fluid m-2 mt-4 reportes">
+    <div class="row titulo">
+        <div class="col-2">
+            <h1>Reportes</h1>
+        </div>
+    </div>
+    <div class="row contenido">
+        <div class="col">
+            <!-- buscar -->
+            <mat-form-field>
+                <mat-label>Buscar</mat-label>
+                <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+            </mat-form-field>
+            <!-- table -->
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" #tabla1>6
+                <ng-container matColumnDef="Usuario">
+                    <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                    <td mat-cell *matCellDef="let reporte"> {{reporte.Usuario}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Libro">
+                    <th mat-header-cell *matHeaderCellDef> Libro </th>
+                    <td mat-cell *matCellDef="let reporte"> {{reporte.Libro}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Fecha de pedido">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de pedido </th>
+                    <td mat-cell *matCellDef="let reporte"> {{reporte.fecha_pedido}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Fecha de devolucion">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de devolucion </th>
+                    <td mat-cell *matCellDef="let reporte"> {{reporte.fecha_devolucion}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+
+            </table>
+            <!-- paginador -->
+            <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+    <!-- botones -->
+    <div class="row justify-content-end">
+        <div class="col-2">
+            <button class="btn botonEstilo" routerLink="/reportes">Actualizar</button>
+        </div>
+    </div>
+</section>
