@@ -1,1 +1,74 @@
-<p>libros works!</p>
+
+<section class="container-fluid m-2 mt-4 Libros">
+    <div class="row titulo">
+        <div class="col-2">
+            <h1>Libros</h1>
+        </div>
+    </div>
+    <div class="row contenido">
+        <div class="col">
+            <!-- buscar -->
+            <mat-form-field>
+                <mat-label>Buscar</mat-label>
+                <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+            </mat-form-field>
+            <p>Si usted debe cambiar algun dato de un Libro , proceda a borrarlo y luego crearlo</p>
+            <!-- table -->
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" #tabla3>
+
+                <ng-container matColumnDef="LibroID">
+                    <th mat-header-cell *matHeaderCellDef> LibroID </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Nombre">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.nombre}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Autor">
+                    <th mat-header-cell *matHeaderCellDef> Autor </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.autor}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Categoria">
+                    <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.categoria}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Idioma">
+                    <th mat-header-cell *matHeaderCellDef> Idioma </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.idioma}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Disponibles">
+                    <th mat-header-cell *matHeaderCellDef> Disponibles </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.disponibilidad}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Ejemplares">
+                    <th mat-header-cell *matHeaderCellDef> Ejemplares </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.ejemplares}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Edicion">
+                    <th mat-header-cell *matHeaderCellDef> Edicion </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.edicion}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+
+            </table>
+            <!-- paginador -->
+            <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+    <!-- botones -->
+    <div class="row justify-content-end">
+        <div class="col-3">
+            <button class="btn m-1 botonEstilo" routerLink="/nuevo-libro">Nuevo</button>
+            <button class="btn m-1 botonEstilo" onclick=alert()>Borrar</button>
+        </div>
+    </div>
+</section>
