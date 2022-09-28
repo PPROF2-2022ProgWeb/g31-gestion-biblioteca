@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -45,10 +45,6 @@ public class Books {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -133,7 +129,7 @@ public class Books {
 
     public Books(){}
 
-    public Books(Integer id, String nombre, String autor, String date, String edit, Integer disp, String categoria, String descripcion, String ejemplares, String lang, String pages){
+    public Books(Long id, String nombre, String autor, String date, String edit, Integer disp, String categoria, String descripcion, String ejemplares, String lang, String pages){
         this.id=id;
         this.title=nombre;
         this.author=autor;

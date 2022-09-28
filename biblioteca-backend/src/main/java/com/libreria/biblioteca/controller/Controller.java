@@ -48,7 +48,7 @@ public class Controller {
 
     @DeleteMapping("/delete/{id}")
     public void bajarUsuario(@PathVariable Long id){
-        usuServi.bajarUsers(Math.toIntExact(id));
+        usuServi.bajarUsers(id);
     }
 
     @GetMapping("/users/")
@@ -73,7 +73,7 @@ public class Controller {
 
     @DeleteMapping("/deletebook/{id}")
     public void bajarLibro(@PathVariable Long id){
-        usuServi.bajarUsers(Math.toIntExact(id));
+        usuServi.bajarUsers(id);
     }
 
     //--------------------------------------------------------------------------------

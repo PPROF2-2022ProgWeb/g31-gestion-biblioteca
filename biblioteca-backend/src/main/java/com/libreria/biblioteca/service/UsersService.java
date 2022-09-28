@@ -6,6 +6,24 @@ import com.libreria.biblioteca.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
+
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,13 +44,13 @@ public class UsersService implements IUsersService{
     }
 
     @Override
-    public void bajarUsers(Integer id){
-        userRepo.deleteById(Long.valueOf(id));
+    public void bajarUsers(Long id){
+        userRepo.deleteById(id);
     }
 
     @Override
-    public Optional<Users> buscarUser(Integer id){
-       return userRepo.findById(Long.valueOf(id));
+    public Optional<Users> buscarUser(Long id){
+       return userRepo.findById(id);
 
     }
 
@@ -58,6 +76,20 @@ public class UsersService implements IUsersService{
                     userRepo.save(user1);
                 });
     }
+
+   /* @Override
+    public void InsertLending(int id, String bookid) throws SQLException {
+        Statement stm = reg.createStatement();
+        String date = getFechaActual();
+        Date ahora = new Date();
+        Date devol = sumarFechasDias(ahora, 5);//Sumamos 5 días a la fecha actual.
+        SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
+        String dev = formateador.format(devol);
+        stm.executeUpdate("INSERT INTO `lendings` (`id`, `user_id`, `book_id`, `date_out`, `date_return`) VALUES (NULL, '"+id+"', '"+ bookid +"', '"+ date +"', '"+dev+"')");
+        stm.executeUpdate("UPDATE `books` SET `available` = available-1 WHERE `id` = '"+ bookid +"';");
+        javax.swing.JOptionPane.showMessageDialog(this, "¡Prestamo realizado correctamente! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+    }*/
 
 
 }

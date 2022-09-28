@@ -2,16 +2,18 @@ package com.libreria.biblioteca.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Optional;
 
 @Getter @Setter
 @Entity
+@Proxy(lazy=false)
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -30,14 +32,6 @@ public class Users {
 
     @Column(name="sanc_money", nullable = false)
     private Integer sanc_money = 0;
-
-    public Long getId() {
-        return this.getId();
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -90,7 +84,7 @@ public class Users {
 
     public Users(){}
 
-    public Users(Integer id, String nombre, String domicilio, Integer sanctions, Integer sanc_money, String last_name, String telefono){
+    public Users(Long id, String nombre, String domicilio, Integer sanctions, Integer sanc_money, String last_name, String telefono){
         this.name=nombre;
         this.domicilio=domicilio;
         this.sanctions=sanctions;

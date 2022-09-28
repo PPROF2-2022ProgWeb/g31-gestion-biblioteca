@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LendingsRepository extends JpaRepository<Lendings, Long> {
-    Lendings findByUserAndBook(Integer idUser, Integer idLibro);
+
 }

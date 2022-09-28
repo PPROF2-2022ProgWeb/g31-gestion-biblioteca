@@ -29,9 +29,7 @@ public class Lendings {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+
 
     public Integer getUser_id() {
         return user_id;
@@ -75,6 +73,5 @@ public class Lendings {
         this.user_id=user_id;
     }
 
-    public void ifPresent(Object o) {
-    }
+
 }
