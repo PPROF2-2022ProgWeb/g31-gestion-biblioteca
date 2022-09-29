@@ -47,8 +47,8 @@ export class ReportesComponent implements OnInit {
 //constructor de Reportes
 export class Reporte {
   constructor(
-    public Usuario: String,
-    public Libro: String,
+    public Usuario: string,
+    public Libro: string,
     public fecha_pedido: Date,
     public fecha_devolucion: Date) {
   }

@@ -1,0 +1,39 @@
+.encabezado{
+  margin-top: 20px;
+  font-size: 45px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cuerpoPrincipal{
+  margin-top: 80px;
+}
+
+.noImage {
+  margin-top: 30px;
+}
+
+.textCampos{
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.botonPrestar {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* clase de boton */
+.botonEstilo{
+  background-color: rgb( 13, 71, 161);
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+}
+.botonEstilo:hover {
+  background-color: rgb( 13, 71, 161);
+  color: black;
+  font-size: 28px;
+  font-weight: 500;
+}

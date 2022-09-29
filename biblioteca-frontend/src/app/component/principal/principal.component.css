@@ -1,0 +1,20 @@
+.encabezado{
+  margin-top: 20px;
+  font-size: 45px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cuerpoMain{
+  margin: 100px 0px 20px 10px;
+}
+
+.listaItems{
+  padding-top: 30px;
+  font-weight: 600;
+}
+
+.textoPrincipal{
+  margin-top: 15px;
+  font-weight: 450;
+}

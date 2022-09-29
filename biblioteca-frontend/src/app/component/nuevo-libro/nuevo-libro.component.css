@@ -1,7 +1,7 @@
 .botonEstilo{
   background-color: rgb( 13, 71, 161);
   color: white;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 500;
 }
 .botonEstilo:hover {
@@ -22,7 +22,7 @@ margin-bottom: 10px;
   font-weight: 500;
 }
 .nuevoUsuario{
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
 }
 .itemsThree{

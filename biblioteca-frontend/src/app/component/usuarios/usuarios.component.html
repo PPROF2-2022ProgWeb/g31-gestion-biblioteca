@@ -1,18 +1,16 @@
 
-<section class="container-fluid m-2 mt-4 usuarios">
-    <div class="row titulo">
-        <div class="col-2">
-            <h1>Usuarios</h1>
-        </div>
-    </div>
+<section class="container-fluid m-2 mt-4">
+
+            <h1 class="encabezado">Usuarios</h1>
+        
     <div class="row contenido">
         <div class="col">
             <!-- buscar -->
             <mat-form-field>
-                <mat-label>Buscar</mat-label>
+                <mat-label>Busca aquí</mat-label>
                 <input matInput (keyup)="filtrar($event)" placeholder="buscar">
             </mat-form-field>
-            <p>Si usted debe cambiar algun dato de un usuario , proceda a borrarlo y luego crearlo</p>
+         
             <!-- table -->
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" #tabla2>
 
@@ -60,10 +58,10 @@
         </div>
     </div>
     <!-- botones -->
-    <div class="row justify-content-end">
-        <div class="col-3">
-            <button class="btn m-1 botonEstilo" routerLink="/nuevo-libro">Nuevo</button>
-            <button class="btn m-1 botonEstilo" onclick=alert()>Borrar</button>
+    <div class="container-fluid row botonesUsuario">
+        <div class="col-12 d-flex justify-content-end">
+            <button class="btn btn-lg m-1 botonEstilo" routerLink="/nuevo-usuario">Nuevo</button>
+            <button class="btn btn-lg m-1 botonEstilo" onclick=alert()>Borrar</button>
         </div>
     </div>
 </section>
