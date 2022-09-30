@@ -1,9 +1,7 @@
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { pipe } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { ResponseModel } from './response.model';
 import { Usuario } from '../component/usuarios/usuarios.component';
 
 @Injectable({
@@ -12,13 +10,14 @@ import { Usuario } from '../component/usuarios/usuarios.component';
 export class UsuarioService {
   constructor(private httpClient: HttpClient) {}
 
-  public ObtenerUsuarios(): Observable<ResponseModel<Usuario[]>> {
+  public ObtenerUsuarios(): Observable<Usuario[]> {
     return this.httpClient
-      .get<ResponseModel<Usuario[]>>('http://localhost:8080/ver/usuarios', {
+      .get<Usuario[]>('http://localhost:8080/ver/usuarios', {
         responseType: 'json',
       })
       .pipe(
         map((data) => {
+          // console.log('Respuesta getGiros: ' + JSON.stringify(data));
           return data;
         })
       );
