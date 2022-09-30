@@ -11,12 +11,11 @@ export class LibroService {
 
   public ObtenerUsuarios(): Observable<Libro[]> {
     return this.httpClient
-      .get<Libro[]>('http://localhost:8080/ver/usuarios', {
+      .get<Libro[]>('http://localhost:8080/ver/libros', {
         responseType: 'json',
       })
       .pipe(
         map((data) => {
-          // console.log('Respuesta getGiros: ' + JSON.stringify(data));
           return data;
         })
       );

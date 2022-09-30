@@ -34,6 +34,7 @@ export class UsuariosComponent implements OnInit {
   cargarUsuario() {
     this.usuarioService.ObtenerUsuarios().subscribe(data => {
       this.dataSource.data = data;
+      console.log(data);
     });
   }
 

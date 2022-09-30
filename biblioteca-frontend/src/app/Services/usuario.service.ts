@@ -17,7 +17,6 @@ export class UsuarioService {
       })
       .pipe(
         map((data) => {
-          // console.log('Respuesta getGiros: ' + JSON.stringify(data));
           return data;
         })
       );

@@ -35,6 +35,7 @@ export class LibrosComponent implements OnInit {
   cargarLibros() {
     this.libroService.ObtenerUsuarios().subscribe(data => {
       this.dataSource.data = data;
+      console.log(data);
     });
   }
 
