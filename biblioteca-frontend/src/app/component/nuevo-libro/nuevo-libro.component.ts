@@ -1,3 +1,5 @@
+import { Libro } from './../libros/libros.component';
+import { LibroService } from './../../Services/libro.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,9 +13,18 @@ export class NuevoLibroComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // cargarLibros() {
+  //   this.libroService.ObtenerLibros().subscribe(data => {
+  //     this.dataSource.data = data;
+  //   });
+  // }
+  // agregarLibro(libro: Libro) : void {
+  //   this.LibroService.AgregarLibro().subscribe()
+  // }
   onClickSubmit(data: { inputId: string; inputIdioma: string; inputTitulo: string; inputPaginas: string; inputPublicacion: Date; inputDescripcion: string; inputAutor: string; inputStock: string; inputDisponibles: string; inputCategoria: string; inputEjemplares: string; }) {
     alert("Id : " + data.inputId + "Idioma : " + data.inputIdioma + "Titulo : " + data.inputTitulo + "Paginas : " + data.inputPaginas + "Publicacion : " + data.inputPublicacion + "Descripcion : " + data.inputDescripcion + "Autor : " + data.inputAutor + "Stock : " + data.inputStock + "Disponibles : " + data.inputDisponibles + "Categoria : " + data.inputCategoria + "Ejemplares : " + data.inputEjemplares);
  }
- 
+
 
 }

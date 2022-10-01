@@ -33,11 +33,18 @@ export class LibrosComponent implements OnInit {
   }
 
   cargarLibros() {
-    this.libroService.ObtenerUsuarios().subscribe(data => {
+    this.libroService.ObtenerLibros().subscribe(data => {
       this.dataSource.data = data;
-      console.log(data);
     });
   }
+
+  // editarLibro(libro: Libro): void {
+  //   this.librosService.editarLibro(libro).subscribe(() => {
+  //     this.isModalOpen = false;
+  //     this.isEditing = false;
+  //     this.cargarLibros();
+  //   });
+  // }
 
   filtrar(event: Event) {
     const filtro = (event.target as HTMLInputElement).value;
