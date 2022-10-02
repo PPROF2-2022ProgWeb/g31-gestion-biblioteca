@@ -23,6 +23,8 @@ export class UsuariosComponent implements OnInit {
     'Dinero', //dinero de sanciones
     'Telefono',
     'Domicilio',
+    'Borrar',
+    'Editar'
   ];
 
   constructor(private usuarioService: UsuarioService) {}

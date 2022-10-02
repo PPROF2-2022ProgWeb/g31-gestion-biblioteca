@@ -43,6 +43,12 @@ public class Controller {
         return usuServi.traerUsers();
     }
 
+    @GetMapping("/ver/usuarios/{id}")
+    @ResponseBody
+    public Optional<Users> getUser(@PathVariable Long id){
+        return usuServi.buscarUser(id);
+    }
+
     @DeleteMapping("/delete/{id}")
     public void bajarUsuario(@PathVariable Long id){
         usuServi.bajarUsers(id);
@@ -72,7 +78,11 @@ public class Controller {
         return bookservi.traerLibro(id);
     }
 
-
+    @GetMapping("/ver/verLibro/{id}")
+    @ResponseBody
+    public Optional<Books> getBook(@PathVariable Long id){
+        return bookservi.traerLibro(id);
+    }
 
     @GetMapping("/ver/libros")
     @ResponseBody

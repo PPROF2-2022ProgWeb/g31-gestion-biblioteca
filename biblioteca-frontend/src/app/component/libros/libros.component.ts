@@ -23,6 +23,8 @@ export class LibrosComponent implements OnInit {
     'Disponibles',
     'Ejemplares',
     'Edicion',
+    'Borrar',
+    'Editar'
   ];
 
   constructor(private libroService: LibroService) {}
