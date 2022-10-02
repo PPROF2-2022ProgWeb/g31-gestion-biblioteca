@@ -2,18 +2,18 @@
 <section class="container-fluid m-2 mt-4">
 
             <h1 class="encabezado">Usuarios</h1>
-        
+
     <div class="row contenido">
         <div class="col">
-           <!-- buscar -->
-           <mat-form-field>
-            <mat-label>Buscar</mat-label>
-            <input matInput (keyup)="filtrar($event)" placeholder="buscar">
-        </mat-form-field>
-         
-            <!-- table -->
-            <table mat-table [dataSource]="datos" class="mat-elevation-z5" #tabla2>
 
+            <!-- buscar -->
+            <mat-form-field>
+                <mat-label>Busca aquí</mat-label>
+                <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+            </mat-form-field>
+
+            <!-- table -->
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" #tabla2>
                 <ng-container matColumnDef="UsuarioID">
                     <th mat-header-cell *matHeaderCellDef> UsuarioID </th>
                     <td mat-cell *matCellDef="let usuario"> {{usuario.id}} </td>
@@ -21,27 +21,27 @@
 
                 <ng-container matColumnDef="Nombre">
                     <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let usuario"> {{usuario.nombre}} </td>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.name}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Apellido">
                     <th mat-header-cell *matHeaderCellDef> Apellido </th>
-                    <td mat-cell *matCellDef="let usuario"> {{usuario.apellido}} </td>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.last_name}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Sanciones">
                     <th mat-header-cell *matHeaderCellDef> Sanciones </th>
-                    <td mat-cell *matCellDef="let usuario"> {{usuario.sanciones}} </td>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.sanctions}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Dinero">
                     <th mat-header-cell *matHeaderCellDef> Dinero </th>
-                    <td mat-cell *matCellDef="let usuario"> {{usuario.sanciones_dinero}} </td>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.sanc_money}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Telefono">
                     <th mat-header-cell *matHeaderCellDef> Telefono </th>
-                    <td mat-cell *matCellDef="let usuario"> {{usuario.telefono}} </td>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.tel}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Domicilio">
@@ -78,4 +78,3 @@
         </div>
     </div>
 </section>
-

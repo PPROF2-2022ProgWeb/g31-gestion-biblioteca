@@ -1,3 +1,5 @@
+import { Libro } from './../libros/libros.component';
+import { LibroService } from './../../Services/libro.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,6 +17,7 @@ contactForm!: FormGroup;
   ngOnInit(): void {
     this.contactForm = this.initForm();
   }
+
   
  onSubmit(): void{
   console.log('form ->');
@@ -38,5 +41,6 @@ inputEjemplares: ['', [Validators.required] ],
 inputEdicion: ['', [Validators.required] ],
 })
 }
+
 
 }

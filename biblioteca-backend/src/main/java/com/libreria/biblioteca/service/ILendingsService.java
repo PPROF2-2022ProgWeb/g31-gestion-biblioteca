@@ -1,13 +1,21 @@
 package com.libreria.biblioteca.service;
 
 import com.libreria.biblioteca.models.Books;
+import com.libreria.biblioteca.models.Lendings;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ILendingsService {
-    public List<Books> traerLendings();
+    public List<Lendings> traerLendings();
 
-    public void crearLendings(Books prestamo);
+    public void crearLendings(Lendings prestamo);
 
-    public void bajarLendings(Long id);
+    public void bajarLendings(Integer id);
+
+    public Optional<Lendings> traerLending(Long id);
+
+    public void agregar(Lendings p);
+
+   // public void updateLending(Lendings lend);
 }
