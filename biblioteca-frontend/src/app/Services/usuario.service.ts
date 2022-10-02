@@ -36,7 +36,7 @@ export class UsuarioService {
 
   public AgregarUsuario(usuario: Usuario): Observable<Usuario> {
     return this.httpClient
-      .post<Usuario>('http://localhost:8080/ver/agregarUsers', {
+      .post<Usuario>('http://localhost:8080/agregarUsers', {
         responseType: 'json'
       })
       .pipe(
@@ -44,6 +44,10 @@ export class UsuarioService {
           return data;
         })
       );
+  }
+
+  onCrearRegistro(usuario:Usuario):Observable<Usuario>{
+    return this.httpClient.post<Usuario>('http://localhost:8080/agregarUsers', usuario);
   }
 
   public EditarUsuario(usuario: Usuario): Observable<Usuario> {
