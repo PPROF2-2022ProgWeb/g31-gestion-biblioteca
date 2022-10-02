@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200/")
 @RestController
 public class Controller {
     @Autowired
@@ -31,7 +31,7 @@ public class Controller {
     private LendingsRepository lendingsRepository;
 
 
-    @CrossOrigin(origins="*")
+    @CrossOrigin(origins="http://localhost:4200/nuevo-usuario")
     @PostMapping("/agregarUsers")
     public void agregarUsuario(@RequestBody Users usuario){
         usuServi.crearUsers(usuario);

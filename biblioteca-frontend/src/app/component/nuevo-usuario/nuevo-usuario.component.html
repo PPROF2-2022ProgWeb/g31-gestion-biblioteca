@@ -3,7 +3,7 @@
   <div class="container">
       <div class="row">
           <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
-            <h1 class="h3 mb-3 font-weight-normal color-title">Registrarse</h1>
+            <h1 class="nuevoUsuario">Registrar Nuevo Usuario</h1>
           </div>
       </div>
   <!-- INICIO FORMULARIO -->
@@ -19,11 +19,11 @@
                     <label class="color-title"> Nombre/s </label>
                     <input
                       type="text"
-                      formControlName="nombre"
+                      formControlName="name"
                       [(ngModel)]="usuario.name" 
                       [class.border-danger]="NombreValid"
-                      id="nombre"
-                      name="nombre"
+                      id="name"
+                      name="name"
                       class="form-control"
                       placeholder="Nombre"
                       required
@@ -46,11 +46,11 @@
                     <label class="color-title"> Apellido/s </label>
                     <input
                       type="text"
-                      formControlName="apellido"
+                      formControlName="last_name"
                       [(ngModel)]="usuario.last_name"
                       [class.border-danger]="ApellidoValid"
-                      id="apellido"
-                      name="apellido"
+                      id="last_name"
+                      name="last_name"
                       class="form-control"
                       placeholder="Apellido"
                       required
@@ -95,11 +95,11 @@
                       <label class="color-title"> Teléfono </label>
                       <input
                         type="text"
-                        formControlName="telefono"
+                        formControlName="tel"
                         [(ngModel)]="usuario.tel"
                         [class.border-danger]="TelefonoValid"
-                        id="telefono"
-                        name="telefono"
+                        id="tel"
+                        name="tel"
                         class="form-control"
                         placeholder="Telefono"
                         required
@@ -122,9 +122,9 @@
                       </div>
                     </div>
       
-                    <button type="submit" id="envio"  class="btn btn-lg w-100 btn-registrar btn-block button">
-                      Registrar
-                    </button>
+                    <div class="col-4 inputPosition d-grid gap-2">
+                      <button type="submit" class="btn botonEstilo" id="envio" [disabled]="formulario.invalid">Subir</button>
+                      </div>
                 </form>
              
             </div>

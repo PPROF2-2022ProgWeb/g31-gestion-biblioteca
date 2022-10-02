@@ -1,4 +1,3 @@
-import { Usuario } from './../component/usuarios/usuarios.component';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -74,3 +73,14 @@ export class UsuarioService {
       );
   }
 }
+
+export class Usuario
+{
+  name:string="";
+  last_name:string="";
+  domicilio:string="";
+  tel:string="";
+ 
+
+}
+
