@@ -2,6 +2,7 @@ import { UsuarioService } from './../../Services/usuario.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Usuario } from './../../Services/usuario.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -56,13 +57,5 @@ export class UsuariosComponent implements OnInit {
 
 }
 
-export class Usuario {
-  sanctions?: number;
-  sanc_money?: number;
-  name?: string;
-  last_name?: string;
-  domicilio?: string;
-  tel?: string;
-}
 
 

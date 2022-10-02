@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Services/usuario.service';
-import { Usuario } from '../usuarios/usuarios.component';
-
+import { Usuario } from 'src/app/Services/usuario.service';
 @Component({
   selector: 'app-nuevo-usuario', 
   templateUrl: './nuevo-usuario.component.html',
@@ -19,10 +18,10 @@ export class NuevoUsuarioComponent implements OnInit {
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
     this.formulario= this.fb.group(
       {
-        nombre : new FormControl('', [Validators.required]),
-        apellido : new FormControl('', [Validators.required]),
+        name : new FormControl('', [Validators.required]),
+        last_name : new FormControl('', [Validators.required]),
         domicilio : new FormControl('', [Validators.required]),
-        telefono : new FormControl('', [Validators.required])
+        tel: new FormControl('', [Validators.required])
       }
     )
    }
@@ -31,9 +30,7 @@ export class NuevoUsuarioComponent implements OnInit {
     
   }
   
-  onSubmit(): void{
-    console.log('form ->', this.formulario.value);
- }
+  
 
  onEnviar(event: Event, usuario:Usuario): void {
   event.preventDefault;
@@ -41,12 +38,9 @@ export class NuevoUsuarioComponent implements OnInit {
   if (this.formulario.valid)
   {
     console.log(usuario);
-    this.usuarioService.AgregarUsuario(usuario).subscribe(
+    this.usuarioService.onCrearRegistro(usuario).subscribe(
       data => {
-        console.log(data);
-        //if (data['id_usuario']>0)
-        //{
-          //alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.");
+        alert("El usuario ha sido creado satisfactoriamente.");
           //this.router.navigate(['/login'])
         //}
     })
@@ -62,42 +56,30 @@ else
 
 get Telefono()
 {
-  return this.formulario.get("telefono");
+  return this.formulario.get("tel");
 }
 
-get Pais()
-{
-  return this.formulario.get("pais");
-}
 
-get Ciudad()
-{
-  return this.formulario.get("ciudad");
-}
-get Provincia()
-{
-  return this.formulario.get("provincia");
-}
 
-get Mail()
-{
- return this.formulario.get("email");
-}
+
 
 get Nombre()
 {
-  return this.formulario.get("nombre");
+  return this.formulario.get("name");
 }
 
 get Apellido()
 {
- return this.formulario.get("apellido");
+ return this.formulario.get("last_name");
 }
 
 get Domicilio()
 {
  return this.formulario.get("domicilio");
 }
+
+
+
 
 
 
@@ -121,17 +103,5 @@ get TelefonoValid()
   return this.Telefono?.touched && !this.Telefono?.valid;
 }
 
-
-
-
-get PaisValid(){
-  return this.Pais?.touched && !this.Pais?.valid;
-}
-get CiudadValid(){
-  return this.Ciudad?.touched && !this.Ciudad?.valid;
-}
-get ProvinciaValid(){
-  return this.Provincia?.touched && !this.Provincia?.valid;
-}
 
 }
