@@ -1,46 +1,65 @@
-import { Libro } from './../libros/libros.component';
+import { Libro } from './../../Services/libro.service';
 import { LibroService } from './../../Services/libro.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-libro',
   templateUrl: './nuevo-libro.component.html',
-  styleUrls: ['./nuevo-libro.component.css']
+  styleUrls: ['./nuevo-libro.component.css'],
 })
 export class NuevoLibroComponent implements OnInit {
+  contactForm: FormGroup;
 
-contactForm!: FormGroup;
+  libro: Libro = new Libro();
 
-  constructor(private readonly fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.contactForm = this.initForm();
+  constructor(
+    private fb: FormBuilder,
+    private libroService: LibroService,
+    private router: Router
+  ) {
+    this.contactForm = this.fb.group({
+      lang: ['', [Validators.required]],
+      title: ['', [Validators.required]],
+      pages: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      author: ['', [Validators.required]],
+      available: ['', [Validators.required]],
+      category: ['', [Validators.required]],
+      ejemplares: ['', [Validators.required]],
+      edit: ['', [Validators.required]],
+    });
   }
 
+  ngOnInit(): void {
+  }
+
+  onEnviar(event: Event, libro:Libro): void {
+    event.preventDefault;
   
- onSubmit(): void{
-  console.log('form ->');
- }
- 
-//Propiedades del formulario
+    if (this.contactForm.valid)
+    {
+      console.log(libro);
+      this.libroService.onCrearRegistro(libro).subscribe(
+        data => {
+          alert("El libro ha sido agregado satisfactoriamente.");
+            //this.router.navigate(['/login'])
+          //}
+      })
+  }
+  else
+  {
+    this.contactForm.markAllAsTouched();
+  }
+  };
+  
 
-initForm(): FormGroup{
-return this.fb.group({
-inputId: ['', [Validators.required] ],  //validators. -->muestra lista validadores para activar.
-inputIdioma: ['', [Validators.required] ],
-inputTitulo: ['', [Validators.required] ],
-inputPaginas: ['', [Validators.required] ],
-inputPublicacion: ['', [Validators.required] ],
-inputDescripcion: ['', [Validators.required] ],
-inputAutor: ['', [Validators.required] ],
-inputStock: ['', [Validators.required] ],
-inputDisponibles: ['', [Validators.required] ],
-inputCategoria: ['', [Validators.required] ],
-inputEjemplares: ['', [Validators.required] ],
-inputEdicion: ['', [Validators.required] ],
-})
-}
-
-
+  //Prop
 }

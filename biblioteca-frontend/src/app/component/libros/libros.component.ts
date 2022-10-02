@@ -1,4 +1,4 @@
-import { LibroService } from './../../Services/libro.service';
+import { Libro, LibroService } from './../../Services/libro.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -63,14 +63,3 @@ export class LibrosComponent implements OnInit {
 
 }
 
-//constructor de Libros
-export interface Libro {
-  id?: number;
-  disponibilidad?: number;
-  title?: string;
-  autor?: string;
-  edit?: string;
-  idioma?: string;
-  categoria?: string;
-  ejemplares?: string;
-}

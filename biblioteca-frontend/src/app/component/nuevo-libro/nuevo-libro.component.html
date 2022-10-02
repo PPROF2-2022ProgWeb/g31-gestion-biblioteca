@@ -2,84 +2,78 @@
   <h1 class="nuevoUsuario">Registrar Nuevo Libro</h1>
   <br>
   <!--INICIO Formulario-->
-  <form [formGroup]="contactForm" (ngSubmit) = "onSubmit()" class="container-fluid text-center m-2 mt-4">
+  <form [formGroup]="contactForm"  (ngSubmit)="onEnviar($event, libro)" class="container-fluid text-center m-2 mt-4">
     <div class="form-row row justify-content-around">
-      <div class="form-group col-4">
-        <label for="inputId" class="textCampos">Libro ID</label>
-        <input type="number" class="form-control" id="inputId" name="inputId" placeholder="Ingrese ID del libro" formControlName="inputId">
-        <div *ngIf="contactForm.get('inputId')?.touched && contactForm.get('inputId')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div> <!-- en caso de tener mas validaciones: copiar y pegar este codigo y cambiar el tipo de validacion ['']-->
-        <!--Para hacer dinamico el cambio por el  que un campo pida 3 caracteres minimo y que cambie con la variable del ts, se debe colocar en el campo de la frase "¡este campo requiere {{contactForm.get('inputId')?.errors?.['required']?requiredLength}} caracteres!"  con esto se cambiara la frase de forma dinamica al cambiar la restriccion en ts-->
-      </div>
-      <div class="form-group col-4">
-        <label for="inputIdioma" class="textCampos">Idioma</label>
-        <input type="text" class="form-control" id="inputIdioma" name="inputIdioma" placeholder="Ingrese Idioma del Libro" formControlName="inputIdioma">
-        <div *ngIf="contactForm.get('inputIdioma')?.touched && contactForm.get('inputIdioma')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
-      </div>
+      
     </div>
     <div class="form-row row justify-content-around">
       <div class="form-group col-4 inputPosition">
         <label for="inputTitulo" class="textCampos">Título</label>
-        <input type="text" class="form-control" id="inputTitulo" name="inputTitulo" placeholder="Ingrese el Título" formControlName="inputTitulo">
-        <div *ngIf="contactForm.get('inputTitulo')?.touched && contactForm.get('inputTitulo')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Ingrese el Título" formControlName="title" [(ngModel)]="libro.title" >
+        <div *ngIf="contactForm.get('title')?.touched && contactForm.get('title')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
       <div class="form-group col-4 inputPosition">
         <label for="inputPaginas" class="textCampos">Páginas</label>
-        <input type="number" class="form-control" id="inputPaginas" name="inputPaginas" placeholder="Ingrese la Cantidad de Páginas Totales" formControlName="inputPaginas">
-        <div *ngIf="contactForm.get('inputPaginas')?.touched && contactForm.get('inputPaginas')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="number" class="form-control" id="pages" name="pages" placeholder="Ingrese la Cantidad de Páginas Totales" formControlName="pages" [(ngModel)]="libro.pages" >
+        <div *ngIf="contactForm.get('pages')?.touched && contactForm.get('pages')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
     </div>
     <div class="form-row row justify-content-around">
       <div class="form-group col-4 inputPosition">
         <label for="inputPublicacion" class="textCampos">Fecha de Publicación</label>
-        <input type="date" class="form-control" id="inputPublicacion" name="inputPublicacion" placeholder="Ingrese la Fecha de Publicación" formControlName="inputPublicacion">
-        <div *ngIf="contactForm.get('inputPublicacion')?.touched && contactForm.get('inputPublicacion')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="date" class="form-control" id="date" name="date" placeholder="Ingrese la Fecha de Publicación" formControlName="date" [(ngModel)]="libro.date">
+        <div *ngIf="contactForm.get('date')?.touched && contactForm.get('date')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
       <div class="form-group col-4 inputPosition">
         <label for="inputDescripcion" class="textCampos">Descripción</label>
-        <input type="text" class="form-control" id="inputDescripcion" name="inputDescripcion" placeholder="Ingrese la Descripción del Libro" formControlName="inputDescripcion">
-        <div *ngIf="contactForm.get('inputDescripcion')?.touched && contactForm.get('inputDescripcion')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Ingrese la Descripción del Libro" formControlName="description" [(ngModel)]="libro.description">
+        <div *ngIf="contactForm.get('description')?.touched && contactForm.get('description')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
     </div>
     <div class="form-row row justify-content-around">
       <div class="form-group col-4 inputPosition">
         <label for="inputAutor" class="textCampos">Autor</label>
-        <input type="text" class="form-control" id="inputAutor" name="inputAutor" placeholder="Ingrese el Nombre de Autor/es" formControlName="inputAutor">
-        <div *ngIf="contactForm.get('inputAutor')?.touched && contactForm.get('inputAutor')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="text" class="form-control" id="author" name="author" placeholder="Ingrese el Nombre de Autor/es" formControlName="author"  [(ngModel)]="libro.author">
+        <div *ngIf="contactForm.get('author')?.touched && contactForm.get('author')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
-      <div class="form-group col-1 inputPosition">
-        <label for="inputStock" class="textCampos">Stock</label>
-        <input type="number" class="form-control" id="inputStock" name="inputStock" placeholder="Cantidad" formControlName="inputStock">
-        <div *ngIf="contactForm.get('inputStock')?.touched && contactForm.get('inputStock')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
-      </div>
-      <div class="form-group col-1 inputPosition">
+
+      
+     
+      <div class="form-group col-4 inputPosition">
         <label for="inputDisponibles" class="textCampos">Disponibles</label>
-        <input type="number" class="form-control" id="inputDisponibles" name="inputDisponibles" placeholder="Cantidad" formControlName="inputDisponibles">
-        <div *ngIf="contactForm.get('inputDisponibles')?.touched && contactForm.get('inputDisponibles')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="number" class="form-control" id="available" name="available" placeholder="Cantidad" formControlName="available" [(ngModel)]="libro.available">
+        <div *ngIf="contactForm.get('available')?.touched && contactForm.get('available')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
     </div>
     <div class="form-row row justify-content-around">
       <div class="form-group col-4 inputPosition">
         <label for="inputCategoria" class="textCampos">Categoría</label>
-        <input type="text" class="form-control" id="inputCategoria" name="inputCategoria" placeholder="Ingrese la Categoría del Libro" formControlName="inputCategoria">
-        <div *ngIf="contactForm.get('inputCategoria')?.touched && contactForm.get('inputCategoria')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="text" class="form-control" id="category" name="category" placeholder="Ingrese la Categoría del Libro" formControlName="category" [(ngModel)]="libro.category">
+        <div *ngIf="contactForm.get('category')?.touched && contactForm.get('category')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
       <div class="form-group col-4 inputPosition">
         <label for="inputEjemplares" class="textCampos">Ejemplares</label>
-        <input type="number" class="form-control" id="inputEjemplares" name="inputEjemplares" placeholder="Ingrese la Cantidad de Ejemplares" formControlName="inputEjemplares">
-        <div *ngIf="contactForm.get('inputEjemplares')?.touched && contactForm.get('inputEjemplares')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="number" class="form-control" id="ejemplares" name="ejemplares" placeholder="Ingrese la Cantidad de Ejemplares" formControlName="ejemplares" [(ngModel)]="libro.ejemplares">
+        <div *ngIf="contactForm.get('inputEjemplares')?.touched && contactForm.get('ejemplares')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
     </div>
     <div class="form-row row justify-content-around">
       <div class="form-group col-4 inputPosition">
         <label for="inputEdicion" class="textCampos">Edición</label>
-        <input type="number" class="form-control" id="inputEdicion" name="inputEdicion" placeholder="Ingrese la Edición" formControlName="inputEdicion">
-        <div *ngIf="contactForm.get('inputEdicion')?.touched && contactForm.get('inputEdicion')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+        <input type="number" class="form-control" id="edit" name="edit" placeholder="Ingrese la Edición" formControlName="edit" [(ngModel)]="libro.edit">
+        <div *ngIf="contactForm.get('edit')?.touched && contactForm.get('edit')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
-      <div class="col-4 inputPosition d-grid gap-2">
+
+      <div class="form-group col-4">
+        <label for="inputIdioma" class="textCampos">Idioma</label>
+        <input type="text" class="form-control" id="lang" name="lang" placeholder="Ingrese Idioma del Libro" formControlName="lang" [(ngModel)]="libro.lang">
+        <div *ngIf="contactForm.get('lang')?.touched && contactForm.get('lang')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+      </div>
+      
+    </div>
+    <div class="col-4 inputPosition d-grid gap-2">
       <button type="submit" class="btn botonEstilo" [disabled]="contactForm.invalid">Subir</button>
       </div>
-    </div>
-    
   </form>
    
   <!--FIN Formulario-->

@@ -1,4 +1,3 @@
-import { Libro } from './../component/libros/libros.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
@@ -45,6 +44,10 @@ export class LibroService {
       );
   }
 
+  onCrearRegistro(libro:Libro):Observable<Libro>{
+    return this.httpClient.post<Libro>('http://localhost:8080/agregarBooks', libro);
+  }
+
   public EditarLibro(libro: Libro): Observable<Libro> {
     return this.httpClient
       .put<Libro>('http://localhost:8080/ver/editarBook', {
@@ -68,4 +71,18 @@ export class LibroService {
         })
       );
   }
+}
+
+//constructor de Libros
+export class Libro {
+  available?: number;
+  title?: string;
+  author?: string;
+  edit?: string;
+  lang?: string;
+  category?: string;
+  ejemplares?: string;
+  description?:string;
+  date?:string;
+  pages?:string;
 }

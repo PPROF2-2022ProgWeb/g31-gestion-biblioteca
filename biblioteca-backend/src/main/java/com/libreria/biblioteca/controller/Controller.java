@@ -60,7 +60,7 @@ public class Controller {
 
 //-------------------------------------------------------------------
 
-    @CrossOrigin(origins="*")
+    @CrossOrigin(origins="http://localhost:4200/*")
     @PostMapping("/agregarBooks")
     public void agregarLibro(@RequestBody Books libro){
         bookservi.crearBooks(libro);
