@@ -51,7 +51,6 @@ public class UsersService implements IUsersService{
     @Override
     public Optional<Users> buscarUser(Long id){
        return userRepo.findById(id);
-
     }
 
     @Override
