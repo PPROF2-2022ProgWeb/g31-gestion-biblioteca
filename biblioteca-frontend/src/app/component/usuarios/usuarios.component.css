@@ -10,13 +10,13 @@
 .botonEstilo{
     background-color: rgb( 13, 71, 161);
     color: white;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 500;
   }
 .botonEstilo:hover {
     background-color: rgb( 13, 71, 161);
     color: black;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 500;
 }
 
@@ -31,3 +31,23 @@
   margin-top: 30px;
   margin-right: 30px;
  }
+
+ .mat-column-Borrar { 
+  width: 8%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.botonBorrar:hover {
+  color: rgb( 13, 71, 161) ;
+}
+
+.mat-column-Editar { 
+  width: 8%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.botonOpciones:hover {
+  color: rgb( 13, 71, 161) ;
+}

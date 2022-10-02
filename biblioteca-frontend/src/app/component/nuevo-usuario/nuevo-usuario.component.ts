@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-nuevo-usuario', 
@@ -8,14 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoUsuarioComponent implements OnInit {
 
-  constructor() { }
+  contactForm!: FormGroup;
+
+  constructor(private readonly fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.contactForm = this.initForm();
   }
-  onClickSubmit(data: { inputNombre: string; inputDireccion: string; inputApellido: string; inputTelefono: string; inputApellido1: string }) {
-    alert("Nombre : " + data.inputNombre + "Direccion : " +data.inputDireccion + "Apellido 1 : " + data.inputApellido + "Telefono : " +data.inputTelefono + "Apellido 2 : " +data.inputApellido1);
+  
+  onSubmit(): void{
+    console.log('form ->', this.contactForm.value);
  }
 
-  
+  //Propiedades del formulario
+
+initForm(): FormGroup{
+  return this.fb.group({
+  inputNombre: ['', [Validators.required] ],  //validators. -->muestra lista validadores para activar.
+  inputDireccion: ['', [Validators.required] ],
+  inputApellido: ['', [Validators.required] ],
+  inputTelefono: ['', [Validators.required] ],
+  inputApellido1: ['', [Validators.required] ],
+  })
+  }
 
 }

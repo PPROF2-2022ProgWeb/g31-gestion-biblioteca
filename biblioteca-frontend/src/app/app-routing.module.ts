@@ -10,7 +10,7 @@ import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.compone
 import { NuevoUsuarioComponent } from './component/nuevo-usuario/nuevo-usuario.component';
 
 const routes: Routes = [
-  
+  {path: "", redirectTo: "principal" , pathMatch: "full"}, //Redirecciona inicio a página deseada.
   {path: "principal", component: PrincipalComponent} ,
   {path: "usuarios", component: UsuariosComponent} ,
   {path: "libros", component: LibrosComponent },

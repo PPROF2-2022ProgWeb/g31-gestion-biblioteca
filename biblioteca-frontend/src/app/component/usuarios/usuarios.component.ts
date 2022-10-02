@@ -3,6 +3,8 @@ import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
+
+
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -23,8 +25,19 @@ export class UsuariosComponent implements OnInit {
     this.dataSource.filter = filtro.trim().toLowerCase();
   }
 
+
+//funcion borrar
+
+  borrarFila(cod: number) {
+    if (confirm("¿Realmente quiere borrar los datos?")) {
+      this.datos.splice(cod, 1);
+      this.tabla2.renderRows();
+    }
+  }
+
+
     //nombrar columnas
-    columnas: string[] = [
+    columnas: any[] = [
       'UsuarioID' , 
       'Nombre',
       'Apellido',
@@ -32,7 +45,10 @@ export class UsuariosComponent implements OnInit {
       'Dinero',//dinero de sanciones
       'Telefono',
       'Domicilio',
+      'Borrar',
+      'Editar',
     ];
+
 
     //datos que se visualizaran
     datos: Usuario[] =

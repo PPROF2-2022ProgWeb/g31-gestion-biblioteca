@@ -3,6 +3,7 @@ import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
+
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
@@ -10,8 +11,16 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ReportesComponent implements OnInit {
 
+  //recarga de página
+  
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 
   ngOnInit() {
+
+    
+    
     //funcion para cargar los datos de la variable datos en la tabla
       this.dataSource = new MatTableDataSource<Reporte>(this.datos);
       this.dataSource.paginator = this.paginator;
@@ -28,12 +37,12 @@ export class ReportesComponent implements OnInit {
   columnas: string[] = ['Usuario','Libro', 'Fecha de pedido', 'Fecha de devolucion' ,];
   //datos que se visualizaran
   datos: Reporte[] =
-    [new Reporte('Juan', 'Fabulas de Marcos', new Date(), new Date()),
-    new Reporte('pepe', 'Las Aventuras de Lucas', new Date(), new Date()),
-    new Reporte('carlos', 'El despertar', new Date(), new Date()),
-    new Reporte('carlos', 'sasd', new Date(), new Date()),
-    new Reporte('carlos', 'sasd', new Date(), new Date()),
-    new Reporte('carlos', 'sasd', new Date(), new Date()),]
+    [new Reporte('Juan', 'El sapo Pepe', new Date(), new Date()),
+    new Reporte('Pepe', 'Las Aventuras de Lucas', new Date(), new Date()),
+    new Reporte('Carlos', 'El despertar', new Date(), new Date()),
+    new Reporte('Juan', 'Anochecer', new Date(), new Date()),
+    new Reporte('Marcos', 'Atardecer', new Date(), new Date()),
+    new Reporte('Gertrudis', 'Cobra', new Date(), new Date()),]
   dataSource: any;
 
   reporteselect: Reporte = new Reporte('', '', new Date(), new Date());
@@ -53,4 +62,7 @@ export class Reporte {
     public fecha_devolucion: Date) {
   }
 }
+
+
+
 
