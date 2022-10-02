@@ -2,34 +2,34 @@
 <h1 class="nuevoUsuario">Registrar Nuevo Usuario</h1>
 <br>
 <!--INICIO Formulario-->
-<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" class="container-fluid text-center m-2 mt-4">
+<form [formGroup]="contactForm" (ngSubmit) = "onSubmit()" class="container-fluid text-center m-2 mt-4">
   <div class="form-row row justify-content-around">
     <div class="form-group col-4">
       <label for="inputNombre" class="textCampos">Nombre</label>
-      <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Ingrese el Nombre" ngModel>
+      <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Ingrese el Nombre" formControlName="inputNombre">
+      <div *ngIf="contactForm.get('inputNombre')?.touched && contactForm.get('inputNombre')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
     </div>
     <div class="form-group col-4">
       <label for="inputDireccion" class="textCampos">Domicilio</label>
-      <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" placeholder="Ingrese el Domicilio"ngModel>
+      <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" placeholder="Ingrese el Domicilio" formControlName="inputDireccion">
+      <div *ngIf="contactForm.get('inputDireccion')?.touched && contactForm.get('inputDireccion')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
     </div>
   </div>
   <div class="form-row row justify-content-around">
     <div class="form-group col-4 inputPosition">
       <label for="inputApellido" class="textCampos">Apellido Paterno</label>
-      <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Ingrese el Apellido Paterno"ngModel>
+      <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Ingrese el Apellido Paterno" formControlName="inputApellido">
+      <div *ngIf="contactForm.get('inputApellido')?.touched && contactForm.get('inputApellido')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
     </div>
     <div class="form-group col-4 inputPosition">
       <label for="inputTelefono" class="textCampos">Teléfono</label>
-      <input type="number" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="Ingrese el Teléfono"ngModel>
+      <input type="number" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="Ingrese el Teléfono" formControlName="inputTelefono">
+      <div *ngIf="contactForm.get('inputTelefono')?.touched && contactForm.get('inputTelefono')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
     </div>
   </div>
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4 inputPosition">
-      <label for="inputApellido1" class="textCampos">Apellido Materno</label>
-      <input type="text" class="form-control" id="inputApellido1" name="inputApellido1" placeholder="Ingrese el Apellido Materno"ngModel>
-    </div>
-    <div class="col-4 inputPosition d-grid gap-2">
-    <button type="submit" value ="submit" class="btn botonEstilo">Registrar</button>
+  <div class="container-fluid botonesUsuario">
+    <div class="col-10 d-flex justify-content-end">
+    <button type="submit" value ="submit" class="btn botonEstilo" [disabled]="contactForm.invalid">Registrar</button>
     </div>
   </div>
   

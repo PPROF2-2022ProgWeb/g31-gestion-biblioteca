@@ -24,6 +24,17 @@ export class LibrosComponent implements OnInit {
   }
 
 
+  //funcion borrar
+
+  borrarFila(cod: number) {
+    if (confirm("¿Realmente quiere borrar los datos?")) {
+      this.datos.splice(cod, 1);
+      this.tabla3.renderRows();
+    }
+  }
+
+
+
     //nombrar columnas
     columnas: string[] = [
       'LibroID' , 
@@ -34,6 +45,8 @@ export class LibrosComponent implements OnInit {
       'Disponibles',
       'Ejemplares',
       'Edicion',
+      'Borrar',
+      'Editar',
     ];
 
     //datos que se visualizaran

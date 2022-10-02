@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-nuevo-libro',
@@ -7,13 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoLibroComponent implements OnInit {
 
-  constructor() { }
+contactForm!: FormGroup;
+
+  constructor(private readonly fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.contactForm = this.initForm();
   }
-  onClickSubmit(data: { inputId: string; inputIdioma: string; inputTitulo: string; inputPaginas: string; inputPublicacion: Date; inputDescripcion: string; inputAutor: string; inputStock: string; inputDisponibles: string; inputCategoria: string; inputEjemplares: string; }) {
-    alert("Id : " + data.inputId + "Idioma : " + data.inputIdioma + "Titulo : " + data.inputTitulo + "Paginas : " + data.inputPaginas + "Publicacion : " + data.inputPublicacion + "Descripcion : " + data.inputDescripcion + "Autor : " + data.inputAutor + "Stock : " + data.inputStock + "Disponibles : " + data.inputDisponibles + "Categoria : " + data.inputCategoria + "Ejemplares : " + data.inputEjemplares);
+  
+ onSubmit(): void{
+  console.log('form ->');
  }
  
+//Propiedades del formulario
+
+initForm(): FormGroup{
+return this.fb.group({
+inputId: ['', [Validators.required] ],  //validators. -->muestra lista validadores para activar.
+inputIdioma: ['', [Validators.required] ],
+inputTitulo: ['', [Validators.required] ],
+inputPaginas: ['', [Validators.required] ],
+inputPublicacion: ['', [Validators.required] ],
+inputDescripcion: ['', [Validators.required] ],
+inputAutor: ['', [Validators.required] ],
+inputStock: ['', [Validators.required] ],
+inputDisponibles: ['', [Validators.required] ],
+inputCategoria: ['', [Validators.required] ],
+inputEjemplares: ['', [Validators.required] ],
+inputEdicion: ['', [Validators.required] ],
+})
+}
 
 }
