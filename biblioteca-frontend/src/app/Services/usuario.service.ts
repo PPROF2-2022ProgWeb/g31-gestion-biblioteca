@@ -1,8 +1,8 @@
+import { Usuario } from './../component/usuarios/usuarios.component';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Usuario } from '../component/usuarios/usuarios.component';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,54 @@ export class UsuarioService {
     return this.httpClient
       .get<Usuario[]>('http://localhost:8080/ver/usuarios', {
         responseType: 'json',
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  public ObtenerUsuarioId(id: number): Observable<Usuario[]> {
+    return this.httpClient
+      .get<Usuario[]>('http://localhost:8080/ver/usuarios/{id}', {
+        responseType: 'json'
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  public AgregarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.httpClient
+      .post<Usuario>('http://localhost:8080/ver/agregarUsers', {
+        responseType: 'json'
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  public EditarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.httpClient
+      .put<Usuario>('http://localhost:8080/ver/editarUser', {
+        responseType: 'json'
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  public EliminarUsuario(id: Number): Observable<Usuario> {
+    return this.httpClient
+      .delete<Usuario>('http://localhost:8080/ver/deletebook/{id}', {
+        responseType: 'json'
       })
       .pipe(
         map((data) => {
