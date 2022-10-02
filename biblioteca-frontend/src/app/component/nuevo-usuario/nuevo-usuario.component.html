@@ -1,39 +1,125 @@
-<div class="container-fluid m-2 mt-4 text-center">
-<h1 class="nuevoUsuario">Registrar Nuevo Usuario</h1>
-<br>
-<!--INICIO Formulario-->
-<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" class="container-fluid text-center m-2 mt-4">
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4">
-      <label for="inputNombre" class="textCampos">Nombre</label>
-      <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Ingrese el Nombre" ngModel>
+<section id="register" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
+        <h1 class="h3 mb-3 font-weight-normal color-title">Registrarse</h1>
+      </div>
     </div>
-    <div class="form-group col-4">
-      <label for="inputDireccion" class="textCampos">Domicilio</label>
-      <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" placeholder="Ingrese el Domicilio"ngModel>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
+        <div class="card_register">
+          <div class="card">
+            <div class="card-body text-center">
+              <form [formGroup]="formulario" >
+
+                <div class="form-group">
+                  <label class="color-title"> Nombre/s </label>
+                  <input
+                    type="text"
+                    formControlName="nombre"
+                    [(ngModel)]="usuario.name" [class.border-danger]="NombreValid"
+                    id="nombre"
+                    name="nombre"
+                    class="form-control"
+                    placeholder="Nombre"
+                    required
+                    #newName
+                  />
+                  <div *ngIf="Nombre?.errors  && Nombre?.touched">
+                    <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                      El nombre es requerido.
+                    </p>
+                </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="color-title"> Apellido/s </label>
+                  <input
+                    type="text"
+                    formControlName="apellido"
+                    [(ngModel)]="usuario.last_name" [class.border-danger]="ContrasenaValid"
+                    id="apellido"
+                    name="apellido"
+                    class="form-control"
+                    placeholder="Apellido"
+                    required
+                    #newApellido
+                  />
+                  <div *ngIf="Apellido?.errors  && Apellido?.touched">
+                    <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+                      El apellido es requerido.
+                    </p>
+                </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="color-title"> Domicilio </label>
+                    <input
+                      type="email"
+                      formControlName="email"
+                      [(ngModel)]="usuario.domicilio" [class.border-danger]="MailValid"
+                      id="email"
+                      name="mail"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      #newMail
+                    />
+                    <div *ngIf="Mail?.errors  && Mail?.touched">
+                      <p *ngIf="Mail?.hasError('required')" class="text-danger">
+                        El email es requerido.
+                      </p>
+                  </div>
+                  </div>
+
+               
+
+                  <div class="form-group">
+                    <label class="color-title"> Teléfono </label>
+                    <input
+                      type="text"
+                      formControlName="telefono"
+                      [(ngModel)]="usuario.tel" [class.border-danger]="TelefonoValid"
+                      id="telefono"
+                      name="telefono"
+                      class="form-control"
+                      placeholder="Telefono"
+                      required
+                      #newTelefono
+                    />
+                    <div *ngIf="Telefono?.errors  && Telefono?.touched">
+                      <p *ngIf="Telefono?.hasError('required')" class="text-danger">
+                        El teléfono es requerido.
+                      </p>
+                  </div>
+                  </div>
+
+              
+
+                 
+
+                  <button type="submit" class="btn btn-lg w-100 btn-registrar btn-block"  [disabled]="!formulario.valid">
+                      Agregar
+                  </button>
+                  <div class="form-group">
+                      <a routerLink="../login" class="form-control login-user btn-pass">¿Ya tienes una cuenta?</a>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4 inputPosition">
-      <label for="inputApellido" class="textCampos">Apellido Paterno</label>
-      <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Ingrese el Apellido Paterno"ngModel>
-    </div>
-    <div class="form-group col-4 inputPosition">
-      <label for="inputTelefono" class="textCampos">Teléfono</label>
-      <input type="number" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="Ingrese el Teléfono"ngModel>
-    </div>
-  </div>
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4 inputPosition">
-      <label for="inputApellido1" class="textCampos">Apellido Materno</label>
-      <input type="text" class="form-control" id="inputApellido1" name="inputApellido1" placeholder="Ingrese el Apellido Materno"ngModel>
-    </div>
-    <div class="col-4 inputPosition d-grid gap-2">
-    <button type="submit" value ="submit" class="btn botonEstilo">Registrar</button>
-    </div>
-  </div>
-  
-</form>
-<!--FIN Formulario-->
-</div>
+</section>
+
+
+
+
+
+
+
+
 

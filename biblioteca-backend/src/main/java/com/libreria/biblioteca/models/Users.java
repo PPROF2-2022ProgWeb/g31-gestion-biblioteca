@@ -27,10 +27,10 @@ public class Users {
     @Column(name = "tel", nullable = true)
     private String tel;
 
-    @Column(name = "sanctions", nullable = false)
+    @Column(name = "sanctions", nullable = true)
     private Integer sanctions = 0;
 
-    @Column(name="sanc_money", nullable = false)
+    @Column(name="sanc_money", nullable = true)
     private Integer sanc_money = 0;
 
     public String getName() {

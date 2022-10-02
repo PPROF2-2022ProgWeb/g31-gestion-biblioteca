@@ -15,5 +15,7 @@ public interface ILendingsService {
 
     public Optional<Lendings> traerLending(Long id);
 
+    public void agregar(Lendings p);
+
    // public void updateLending(Lendings lend);
 }

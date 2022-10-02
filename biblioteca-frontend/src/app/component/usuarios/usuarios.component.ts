@@ -44,14 +44,14 @@ export class UsuariosComponent implements OnInit {
   }
 }
 
-export interface Usuario {
+export class Usuario {
   id?: number;
   sanctions?: number;
   sanc_money?: number;
-  name?: string;
-  last_name?: string;
-  domicilio?: string;
-  tel?: string;
+  name?: string="";
+  last_name?: string="";
+  domicilio?: string="";
+  tel?: string="";
 }
 
 

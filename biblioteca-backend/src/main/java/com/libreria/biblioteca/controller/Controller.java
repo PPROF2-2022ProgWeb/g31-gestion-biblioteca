@@ -11,11 +11,8 @@ import com.libreria.biblioteca.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
@@ -56,6 +53,10 @@ public class Controller {
         return usuarioRepository.findAll();
     }
 
+    @CrossOrigin(origins="*")
+    @PostMapping("/editarUser")
+    public void editarUser(@RequestBody Users usuario){usuServi.updateUser(usuario);}
+
 
 //-------------------------------------------------------------------
 
@@ -64,6 +65,14 @@ public class Controller {
     public void agregarLibro(@RequestBody Books libro){
         bookservi.crearBooks(libro);
     }
+
+    @GetMapping("/verLibro")
+    @ResponseBody
+    public Optional<Books> verLibro(Long id){
+        return bookservi.traerLibro(id);
+    }
+
+
 
     @GetMapping("/ver/libros")
     @ResponseBody
@@ -76,12 +85,16 @@ public class Controller {
         usuServi.bajarUsers(id);
     }
 
+    @CrossOrigin(origins="*")
+    @PostMapping("/editarBook")
+    public void editarLibro(@RequestBody Books libro){bookservi.updateBook(libro);}
+
     //--------------------------------------------------------------------------------
 
     @CrossOrigin(origins="*")
     @PostMapping("/agregarLendings")
     public void agregarLendings(@RequestBody Lendings lending){
-        lendiservi.crearLendings(lending);
+        lendiservi.agregar(lending);
     }
 
     @GetMapping("/ver/lendings")
