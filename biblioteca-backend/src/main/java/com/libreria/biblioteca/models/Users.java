@@ -15,10 +15,10 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String last_name;
 
     @Column(name = "domicilio", nullable = true)
@@ -27,10 +27,10 @@ public class Users {
     @Column(name = "tel", nullable = true)
     private String tel;
 
-    @Column(name = "sanctions", nullable = false)
+    @Column(name = "sanctions", nullable = true)
     private Integer sanctions = 0;
 
-    @Column(name="sanc_money", nullable = false)
+    @Column(name="sanc_money", nullable = true)
     private Integer sanc_money = 0;
 
     public String getName() {

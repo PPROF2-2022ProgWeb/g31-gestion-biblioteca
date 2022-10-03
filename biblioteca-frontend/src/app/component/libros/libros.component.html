@@ -1,8 +1,8 @@
 
 <section class="container-fluid m-2 mt-4 Libros">
-        
+
             <h1 class="encabezado">Libros</h1>
-        
+
     <div class="row contenido">
         <div class="col">
             <!-- buscar -->
@@ -10,7 +10,7 @@
                 <mat-label>Buscar</mat-label>
                 <input matInput (keyup)="filtrar($event)" placeholder="buscar">
             </mat-form-field>
-            
+
             <!-- table -->
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" #tabla3>
 
@@ -19,29 +19,29 @@
                     <td mat-cell *matCellDef="let Libro"> {{Libro.id}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="Nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.nombre}} </td>
+                <ng-container matColumnDef="Titulo">
+                    <th mat-header-cell *matHeaderCellDef> Titulo </th>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.title}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Autor">
                     <th mat-header-cell *matHeaderCellDef> Autor </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.autor}} </td>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.author}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Categoria">
                     <th mat-header-cell *matHeaderCellDef> Categoria </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.categoria}} </td>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.category}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Idioma">
                     <th mat-header-cell *matHeaderCellDef> Idioma </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.idioma}} </td>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.lang}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Disponibles">
                     <th mat-header-cell *matHeaderCellDef> Disponibles </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.disponibilidad}} </td>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.available}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Ejemplares">
@@ -51,7 +51,22 @@
 
                 <ng-container matColumnDef="Edicion">
                     <th mat-header-cell *matHeaderCellDef> Edicion </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.edicion}} </td>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.edit}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Borrar">
+                    <th mat-header-cell *matHeaderCellDef ></th>
+                    <td mat-cell *matCellDef="let j"> <button mat-raised-button class="botonBorrar" color="warn" focusable="false"
+                        (click)="borrarFila(j.id)">
+                        Borrar
+                      </button> </td>
+                </ng-container>
+                <ng-container matColumnDef="Editar">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let j"> <button class="botonOpciones" mat-raised-button color="accent" focusable="false"
+                        (click)="borrarFila(j)">
+                        Editar
+                    </button> </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="columnas"></tr>
@@ -63,10 +78,9 @@
         </div>
     </div>
     <!-- botones -->
-    <div class="container-fluid row botonesUsuario">
+    <div class="container-fluid botonesUsuario">
         <div class="col-12 d-flex justify-content-end">
-            <button class="btn btn-lg m-1 botonEstilo" routerLink="/nuevo-libro">Nuevo</button>
-            <button class="btn btn-lg m-1 botonEstilo" onclick=alert()>Borrar</button>
+            <button class="btn btn-lg btn-block m-1 botonEstilo" routerLink="/nuevo-libro">Nuevo Libro</button>
         </div>
     </div>
 </section>
