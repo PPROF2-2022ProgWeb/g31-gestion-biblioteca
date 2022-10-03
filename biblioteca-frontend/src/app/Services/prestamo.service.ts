@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,13 +8,26 @@ import { Observable } from 'rxjs';
 })
 export class PrestamoService {
 
-  url="https://localhost:8080/";
+  url="http://localhost:8080/agregarLendings";
 
   constructor(private http:HttpClient) { }
 
-  onCrearPrestamo(prestamo:Lending):Observable<Lending>{
-    return this.http.post<Lending>(this.url, prestamo);
+  onCrearPrestamo(lending:Lending):Observable<Lending>{
+    return this.http.post<Lending>(this.url, lending);
   }
+
+  public ObtenerReportes(): Observable<Lending[]> {
+    return this.http
+      .get<Lending[]>('http://localhost:8080/ver/lendings', {
+        responseType: 'json',
+      })
+      .pipe(
+        map((data: any) => {
+          return data;
+        })
+      );
+  }
+  
 
  /* ObtenerUsuario(mail:string |null )
   {
@@ -26,15 +39,11 @@ export class PrestamoService {
 
 export class Lending
 {
-  username: string="";
-  nombre:string="";
-  apellido:string="";
-  email:string="";
-  contrasena:string="";
-  telefono:string="";
-  fecha_nacimiento:string="";
+  user_id: string="";
+  book_id:string="";
+  date_out:string="";
+  dia_devolucion:string="";
+  
 
-
-  id_usuario:number=0;
 
 }

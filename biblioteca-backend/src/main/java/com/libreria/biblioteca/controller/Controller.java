@@ -101,18 +101,18 @@ public class Controller {
 
     //--------------------------------------------------------------------------------
 
-    @CrossOrigin(origins="*")
+    @CrossOrigin(origins="http://localhost:4200/*")
     @PostMapping("/agregarLendings")
     public void agregarLendings(@RequestBody Lendings lending){
         lendiservi.agregar(lending);
     }
-
+    @CrossOrigin(origins="http://localhost:4200/*")
     @GetMapping("/ver/lendings")
     @ResponseBody
     public List<Lendings> verLendings(){
         return lendiservi.traerLendings();
     }
-
+    @CrossOrigin(origins="http://localhost:4200/*")
     @DeleteMapping("/deletelending/{id}")
     public void bajarLending(@PathVariable Long id){
         lendiservi.bajarLendings(Math.toIntExact(id));

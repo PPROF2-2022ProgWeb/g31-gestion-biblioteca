@@ -27,7 +27,7 @@ public class Lendings {
     private   String date_return;
 
     @Column(name = "dia_devolucion", nullable = true)
-    private Date dia_devolucion_estimativo;
+    private Date dia_devolucion;
 
     public Long getId() {
         return id;
@@ -68,11 +68,11 @@ public class Lendings {
     }
 
     public Date getDia_devolucion_estimativo() {
-        return dia_devolucion_estimativo;
+        return dia_devolucion;
     }
 
     public void setDia_devolucion_estimativo(Date dia_devolucion_estimativo) {
-        this.dia_devolucion_estimativo = dia_devolucion_estimativo;
+        this.dia_devolucion = dia_devolucion_estimativo;
     }
 
     public Lendings(){}
