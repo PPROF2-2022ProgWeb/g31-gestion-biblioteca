@@ -61,16 +61,11 @@ export class UsuarioService {
       );
   }
 
-  public EliminarUsuario(id: Number): Observable<Usuario> {
-    return this.httpClient
-      .delete<Usuario>('http://localhost:8080/ver/deletebook/{id}', {
-        responseType: 'json'
-      })
-      .pipe(
-        map((data) => {
-          return data;
-        })
-      );
+ public EliminarUsuario(id: Number) {
+    this.httpClient.delete('http://localhost:8080/delete/' + id).subscribe(data => {
+      console.log(data);
+    });
+
   }
 }
 
@@ -80,7 +75,7 @@ export class Usuario
   last_name:string="";
   domicilio:string="";
   tel:string="";
- 
+
 
 }
 

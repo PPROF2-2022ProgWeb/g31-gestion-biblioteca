@@ -24,7 +24,7 @@ export class UsuariosComponent implements OnInit {
     'Telefono',
     'Domicilio',
     'Borrar',
-    'Editar'
+    'Editar',
   ];
 
   constructor(private usuarioService: UsuarioService) {}
@@ -35,7 +35,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   cargarUsuario() {
-    this.usuarioService.ObtenerUsuarios().subscribe(data => {
+    this.usuarioService.ObtenerUsuarios().subscribe((data) => {
       this.dataSource.data = data;
       console.log(data);
     });
@@ -48,14 +48,13 @@ export class UsuariosComponent implements OnInit {
 
   //funcion borrar
 
-  borrarFila(cod: number) {
+  borrarFila(id: number) {
     if (confirm("¿Realmente quiere borrar los datos?")) {
-      //this.dataSource.splice(cod, 1);
-      //this.dataSource.renderRows();
+      this.usuarioService.EliminarUsuario(id);
+      setTimeout(() => {
+        this.cargarUsuario();
+      },
+      300);
     }
   }
-
 }
-
-
-

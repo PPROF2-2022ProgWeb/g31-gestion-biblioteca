@@ -60,16 +60,9 @@ export class LibroService {
       );
   }
 
-  public EliminarLibro(id: Number): Observable<Libro> {
-    return this.httpClient
-      .delete<Libro>('http://localhost:8080/ver/deletebook/{id}', {
-        responseType: 'json'
-      })
-      .pipe(
-        map((data) => {
-          return data;
-        })
-      );
+  public EliminarLibro(id: Number) {
+    this.httpClient.delete('http://localhost:8080/deletebook/' + id).subscribe(data => {
+    });
   }
 }
 

@@ -1,107 +1,91 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 import { Usuario } from 'src/app/Services/usuario.service';
 @Component({
-  selector: 'app-nuevo-usuario', 
+  selector: 'app-nuevo-usuario',
   templateUrl: './nuevo-usuario.component.html',
   styleUrls: ['./nuevo-usuario.component.css'],
-  
 })
 export class NuevoUsuarioComponent implements OnInit {
-
   formulario: FormGroup;
 
   usuario: Usuario = new Usuario();
 
-  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
-    this.formulario= this.fb.group(
-      {
-        name : new FormControl('', [Validators.required]),
-        last_name : new FormControl('', [Validators.required]),
-        domicilio : new FormControl('', [Validators.required]),
-        tel: new FormControl('', [Validators.required])
-      }
-    )
-   }
-
-  ngOnInit(): void {
-    
+  constructor(
+    private fb: FormBuilder,
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {
+    this.formulario = this.fb.group({
+      name: new FormControl('', [Validators.required]),
+      last_name: new FormControl('', [Validators.required]),
+      domicilio: new FormControl('', [Validators.required]),
+      tel: new FormControl('', [Validators.required]),
+    });
   }
-  
-  
 
- onEnviar(event: Event, usuario:Usuario): void {
-  event.preventDefault;
+  ngOnInit(): void {}
 
-  if (this.formulario.valid)
-  {
-    console.log(usuario);
-    this.usuarioService.onCrearRegistro(usuario).subscribe(
-      data => {
-        alert("El usuario ha sido creado satisfactoriamente.");
-          //this.router.navigate(['/login'])
+  onEnviar(event: Event, usuario: Usuario): void {
+    event.preventDefault;
+
+    if (this.formulario.valid) {
+      console.log(usuario);
+      this.usuarioService.onCrearRegistro(usuario).subscribe((data) => {
+        alert('El usuario ha sido creado satisfactoriamente.');
+        //this.router.navigate(['/login'])
         //}
-    })
-}
-else
-{
-  this.formulario.markAllAsTouched();
-}
-};
+      });
+    } else {
+      this.formulario.markAllAsTouched();
+    }
+  }
+
+  // editarUsario() {
+  //   const id = this.usuarioService.ObtenerUsuarioId;
+  //   this.usuarioService.EditarUsuario(id).subscribe((data) => {
+  //     //this.editarUsario = data;
+  //   });
+  // }
 
   //Propiedades del formulario
 
+  get Telefono() {
+    return this.formulario.get('tel');
+  }
 
-get Telefono()
-{
-  return this.formulario.get("tel");
-}
+  get Nombre() {
+    return this.formulario.get('name');
+  }
 
+  get Apellido() {
+    return this.formulario.get('last_name');
+  }
 
+  get Domicilio() {
+    return this.formulario.get('domicilio');
+  }
 
+  get DomicilioValid() {
+    return this.Domicilio?.touched && !this.Domicilio?.valid;
+  }
 
+  get NombreValid() {
+    return this.Nombre?.touched && !this.Nombre?.valid;
+  }
 
-get Nombre()
-{
-  return this.formulario.get("name");
-}
+  get ApellidoValid() {
+    return this.Apellido?.touched && !this.Apellido?.valid;
+  }
 
-get Apellido()
-{
- return this.formulario.get("last_name");
-}
-
-get Domicilio()
-{
- return this.formulario.get("domicilio");
-}
-
-
-
-
-
-
-get DomicilioValid()
-{
-  return this.Domicilio?.touched && !this.Domicilio?.valid;
-}
-
-get NombreValid()
-{
-  return this.Nombre?.touched && !this.Nombre?.valid;
-}
-
-get ApellidoValid()
-{
-  return this.Apellido?.touched && !this.Apellido?.valid;
-}
-
-get TelefonoValid()
-{
-  return this.Telefono?.touched && !this.Telefono?.valid;
-}
-
-
+  get TelefonoValid() {
+    return this.Telefono?.touched && !this.Telefono?.valid;
+  }
 }

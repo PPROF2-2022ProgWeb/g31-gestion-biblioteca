@@ -91,8 +91,8 @@ public class Controller {
     }
 
     @DeleteMapping("/deletebook/{id}")
-    public void bajarLibro(@PathVariable Long id){
-        usuServi.bajarUsers(id);
+    public void bajarLibro(@PathVariable int id){
+        bookservi.bajarBooks(id);
     }
 
     @CrossOrigin(origins="*")

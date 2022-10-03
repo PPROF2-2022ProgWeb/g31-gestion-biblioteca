@@ -53,13 +53,16 @@ export class LibrosComponent implements OnInit {
     this.dataSource.filter = filtro.trim().toLowerCase();
   }
 
-
   //funcion borrar
 
-  borrarFila(cod: number) {
+  borrarFila(id: number) {
     if (confirm("¿Realmente quiere borrar los datos?")) {
-     // this.datos.splice(cod, 1);
-      //this.tabla3.renderRows();
+      const prueba2 = this.libroService.EliminarLibro(id);
+      this.libroService.EliminarLibro(id);
+      setTimeout(() => {
+        this.cargarLibros();
+      },
+      300);
     }
   }
 
