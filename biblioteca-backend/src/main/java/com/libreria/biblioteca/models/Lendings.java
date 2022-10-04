@@ -1,5 +1,6 @@
 package com.libreria.biblioteca.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,12 +21,15 @@ public class Lendings {
     @Column(name="book_id", nullable = false)
     private Long book_id;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "date_out", nullable = true)
-    private String date_out;
+    private Date date_out;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "date_return", nullable = true)
     private   String date_return;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "dia_devolucion", nullable = true)
     private Date dia_devolucion;
 
@@ -51,11 +55,11 @@ public class Lendings {
         this.book_id = book_id;
     }
 
-    public String getDate_out() {
+    public Date getDate_out() {
         return date_out;
     }
 
-    public void setDate_out(String date_out) {
+    public void setDate_out(Date date_out) {
         this.date_out = date_out;
     }
 
@@ -77,7 +81,7 @@ public class Lendings {
 
     public Lendings(){}
 
-    public Lendings(Long id, Long book_id, String devol, String date_out, Long user_id){
+    public Lendings(Long id, Long book_id, String devol, Date date_out, Long user_id){
         this.id=id;
         this.book_id=book_id;
         this.date_return=devol;

@@ -1,7 +1,7 @@
 <section class="container-fluid m-2 mt-4 reportes">
-    
+
             <h1 class="encabezado">Reportes</h1>
-        
+
     <div class="row contenido cuerpoPrincipal">
         <div class="col">
             <!-- buscar -->
@@ -23,17 +23,17 @@
 
                 <ng-container matColumnDef="Fecha de pedido">
                     <th mat-header-cell *matHeaderCellDef> Fecha de pedido </th>
-                    <td mat-cell *matCellDef="let lending"> {{lending.date_out }} </td>
+                    <td mat-cell *matCellDef="let lending"> {{lending.date_out | date:'d/M/y'}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Fecha de devolucion">
                     <th mat-header-cell *matHeaderCellDef> Fecha de devolucion </th>
-                    <td mat-cell *matCellDef="let lending"> {{lending.dia_devolucion}} </td>
+                    <td mat-cell *matCellDef="let lending"> {{lending.dia_devolucion | date:'d/M/y'}} </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="columnas"></tr>
                 <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-                
+
             </table>
             <!-- paginador -->
             <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
