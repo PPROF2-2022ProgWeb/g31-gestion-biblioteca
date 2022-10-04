@@ -35,7 +35,7 @@ Sistema básico para manejo de una biblioteca hecho en Java.
 ## Iniciación App Web - Frontend
 
 - Abrir carpeta del proyecto con VSC o editor preferido y ejecutar desde la terminal los siguientes códigos.
-- Ejecutar "npn install".
+- Ejecutar "npm install".
 - Ejecutar para iniciar "ng serve -o".
 
 ## Proyecto
