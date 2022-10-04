@@ -28,6 +28,9 @@ export class PrestamoService {
       );
   }
   
+  onDevolver(lending:Lending):Observable<Lending>{
+    return this.http.post<Lending>('http://localhost:8080/devolver', lending);
+  }
 
  /* ObtenerUsuario(mail:string |null )
   {

@@ -11,6 +11,8 @@ import com.libreria.biblioteca.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,6 +119,16 @@ public class Controller {
     public void bajarLending(@PathVariable Long id){
         lendiservi.bajarLendings(Math.toIntExact(id));
     }
+
+
+    @CrossOrigin(origins="http://localhost:4200/*")
+    @PostMapping("/devolver")
+    public void devolver(@RequestBody Lendings lending) throws SQLException, ParseException {
+        lendiservi.Devolutions(lending.getUser_id(), lending.getBook_id());
+    }
+
+
+
 
 
 }
