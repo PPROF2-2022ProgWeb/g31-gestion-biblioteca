@@ -59,7 +59,7 @@ public class Controller {
         return usuarioRepository.findAll();
     }
 
-    @CrossOrigin(origins="*")
+    @CrossOrigin(origins="")
     @PostMapping("/editarUser")
     public void editarUser(@RequestBody Users usuario){usuServi.updateUser(usuario);}
 
@@ -91,11 +91,11 @@ public class Controller {
     }
 
     @DeleteMapping("/deletebook/{id}")
-    public void bajarLibro(@PathVariable int id){
-        bookservi.bajarBooks(id);
+    public void bajarLibro(@PathVariable Long id){
+        usuServi.bajarUsers(id);
     }
 
-    @CrossOrigin(origins="*")
+    @CrossOrigin(origins="")
     @PostMapping("/editarBook")
     public void editarLibro(@RequestBody Books libro){bookservi.updateBook(libro);}
 
