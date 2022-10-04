@@ -3,6 +3,8 @@ package com.libreria.biblioteca.service;
 import com.libreria.biblioteca.models.Books;
 import com.libreria.biblioteca.models.Lendings;
 
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,5 +19,5 @@ public interface ILendingsService {
 
     public void agregar(Lendings p);
 
-   // public void updateLending(Lendings lend);
+    public void Devolutions(Long fo, Long bookid) throws SQLException, ParseException;
 }

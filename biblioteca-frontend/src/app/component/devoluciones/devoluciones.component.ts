@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Lending, PrestamoService } from 'src/app/Services/prestamo.service';
 
 @Component({
   selector: 'app-devoluciones',
@@ -9,24 +11,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DevolucionesComponent implements OnInit {
 
   contactForm!: FormGroup;
+  lending: Lending = new Lending();
 
-  constructor(private readonly fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private lendingService: PrestamoService,
+    private router: Router
+  ) {
+    this.contactForm = this.fb.group({
+      user_id: ['', [Validators.required] ],
+      book_id: ['', [Validators.required] ],
+    });
+  }
 
   ngOnInit(): void {
-    this.contactForm = this.initForm();
+    
   }
   
-  onSubmit(): void{
-    console.log('form ->', this.contactForm.value);
- }
+  
 
  //Propiedades del formulario
 
-initForm(): FormGroup{
-  return this.fb.group({
-  inputIdUsuario: ['', [Validators.required] ],
-  inputIdLibro: ['', [Validators.required] ],
-  })
+
+
+  onEnviar(event: Event, lending:Lending): void {
+    event.preventDefault;
+  
+    if (this.contactForm.valid)
+    {
+      console.log(lending);
+      this.lendingService.onDevolver(lending).subscribe(
+        data => {
+          alert("Se ha realizado la devolución satisfactoriamente.");
+            //this.router.navigate(['/login'])
+          //}
+      })
   }
+  else
+  {
+    this.contactForm.markAllAsTouched();
+  }
+  };
 
 }

@@ -4,17 +4,17 @@
           </div>
         <div class="container-fluid row cuerpoPrincipal">
             <div class="col-md-6 fs-5 lh-sm">
-                <form [formGroup]="contactForm" (ngSubmit) = "onSubmit()"  class="container-fluid text-center m-2 mt-4">
+                <form [formGroup]="contactForm" (ngSubmit)="onEnviar($event, lending)"  class="container-fluid text-center m-2 mt-4">
                     <div class="form-row row justify-content-around formPosicion">
                       <div class="form-group mb-3">
                         <label for="inputNombre" class="textCampos">Identificador usuario</label>
-                        <input type="text" class="form-control" id="inputIdUsuario" name="inputIdUsuario" placeholder="Ingrese el Identificador del usuario" formControlName="inputIdUsuario">
-                        <div *ngIf="contactForm.get('inputIdUsuario')?.touched && contactForm.get('inputIdUsuario')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+                        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Ingrese el Identificador del usuario" formControlName="user_id" [(ngModel)]="lending.user_id">
+                        <div *ngIf="contactForm.get('user_id')?.touched && contactForm.get('user_id')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
                       </div>
                       <div class="form-group mb-3">
                         <label for="inputDireccion" class="textCampos">Identificador libro</label>
-                        <input type="text" class="form-control" id="inputIdLibro" name="inputIdLibro" placeholder="Ingrese el Identificador del libro a devolver"formControlName="inputIdLibro">
-                        <div *ngIf="contactForm.get('inputIdLibro')?.touched && contactForm.get('inputIdLibro')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
+                        <input type="text" class="form-control" id="book_id" name="book_id" placeholder="Ingrese el Identificador del libro a devolver" formControlName="book_id" [(ngModel)]="lending.book_id" >
+                        <div *ngIf="contactForm.get('book_id')?.touched && contactForm.get('book_id')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
                       </div>
                       <div class="d-grid gap-2 col-6 mx-auto botonDevolver">
                       <button type="submit" value ="submit" class="btn btn-lg botonEstilo" [disabled]="contactForm.invalid"> Devolver</button>
