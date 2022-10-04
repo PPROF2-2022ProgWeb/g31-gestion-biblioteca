@@ -20,13 +20,23 @@ Sistema básico para manejo de una biblioteca hecho en Java.
 * [![ts][ts.com]][ts-url]
 * [![Springboot][Springboot.io]][Springboot-url]
 
-## Iniciación
-Importar el proyecto en un IDE Java e importar la base de datos.
+## Iniciación App Escritorio
 
-## Importante 
+- Importar el proyecto en un IDE Java e importar la base de datos.
+- Las credenciales de la base de datos se encuentran en la clase "Connect.class". Se deberan modificiar de acuerdo a las usadas por el usuario.
+- Considere instalar antes de compilar el proyecto: [mysql-connector-java-5.1.13](http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-5.1.13.jar.zip)
 
-Las credenciales de la base de datos se encuentran en la clase "Connect.class". Se deberan modificiar de acuerdo a las usadas por el usuario.
-Considere instalar antes de compilar el proyecto: [mysql-connector-java-5.1.13](http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-5.1.13.jar.zip)
+## Iniciación App Web - Backend
+
+- Cargar DB en MySql.
+- Abrir la carpeta del proyecto de backend con Intellij IDEA, configurar el "aplication.properties" con los datos de la DB (paso 1).
+- En caso de tener algún error en la carga de "Maven" ir a settings> Build> Build Tools> Maven> y colocar en "Maven Home Path" la opción "Bundled(Maven 3)".
+
+## Iniciación App Web - Frontend
+
+- Abrir carpeta del proyecto con VSC o editor preferido y ejecutar desde la terminal los siguientes códigos.
+- Ejecutar "npn install".
+- Ejecutar para iniciar "ng serve -o".
 
 ## Proyecto
 
@@ -36,11 +46,11 @@ La base sobre la que se trabajó en el proyecto se ubica en el repositorio de [A
 
 *   Integrantes:
 
-     *  Marcos Javier Gómez.
-     *  Hilario Iñigo Menendez Picossi
-     *  María Florencia Corvalán.
-     *  Juan Ortega.
-     *  Lucas Sebastián Bartolone.
+     *  [Marcos Javier Gómez]
+     *  [Hilario Iñigo Menendez Picossi]
+     *  [María Florencia Corvalán]
+     *  [Juan Ortega]
+     *  [Lucas Sebastián Bartolone]
 
 <!-- Links -->
 
@@ -62,3 +72,9 @@ La base sobre la que se trabajó en el proyecto se ubica en el repositorio de [A
 [Springboot-url]: https://spring.io/
 
 [AnthonyZabs]: https://github.com/AnthonyZabs/ITPLibrary
+
+[Marcos Javier Gómez]: https://github.com/wesborland-github
+[Hilario Iñigo Menendez Picossi]: https://github.com/hpicossi
+[María Florencia Corvalán]: https://github.com/FlorenciaCorvalan
+[Juan Ortega]: https://github.com/Full-Juan-Ortega
+[Lucas Sebastián Bartolone]: https://github.com/LucasBartolone
