@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Lending, PrestamoService } from 'src/app/Services/prestamo.service';
+
 
 @Component({
   selector: 'app-reportes',
@@ -10,11 +12,20 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ReportesComponent implements OnInit {
 
+  //recarga de página
 
+  dataSource: MatTableDataSource<Lending> = new MatTableDataSource<Lending>();
+  
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
+  constructor(private lendingService: PrestamoService) {}
+  
   ngOnInit() {
-    //funcion para cargar los datos de la variable datos en la tabla
-      this.dataSource = new MatTableDataSource<Reporte>(this.datos);
-      this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;
+    this.cargarReportes();
+    console.log( this.cargarReportes())
   }
   //metodo para filtrar
   filtrar(event: Event) {
@@ -22,19 +33,17 @@ export class ReportesComponent implements OnInit {
     this.dataSource.filter = filtro.trim().toLowerCase();
   }  
 
+  cargarReportes() {
+    this.lendingService.ObtenerReportes().subscribe(data => {
+      this.dataSource.data = data;
+    });
+  }
+
   //fin cosas angular
 
   //nombrar columnas
   columnas: string[] = ['Usuario','Libro', 'Fecha de pedido', 'Fecha de devolucion' ,];
-  //datos que se visualizaran
-  datos: Reporte[] =
-    [new Reporte('Juan', 'Fabulas de Marcos', new Date(), new Date()),
-    new Reporte('pepe', 'Las Aventuras de Lucas', new Date(), new Date()),
-    new Reporte('carlos', 'El despertar', new Date(), new Date()),
-    new Reporte('carlos', 'sasd', new Date(), new Date()),
-    new Reporte('carlos', 'sasd', new Date(), new Date()),
-    new Reporte('carlos', 'sasd', new Date(), new Date()),]
-  dataSource: any;
+  
 
   reporteselect: Reporte = new Reporte('', '', new Date(), new Date());
 
@@ -53,4 +62,7 @@ export class Reporte {
     public fecha_devolucion: Date) {
   }
 }
+
+
+
 

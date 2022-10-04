@@ -23,9 +23,11 @@ import { NuevoLibroComponent } from './component/nuevo-libro/nuevo-libro.compone
 
 //tablas
 import { MatTableModule } from '@angular/material/table';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+
+
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     //paginador
     MatPaginatorModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

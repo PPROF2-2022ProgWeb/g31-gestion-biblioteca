@@ -1,39 +1,171 @@
-<div class="container-fluid m-2 mt-4 text-center">
-<h1 class="nuevoUsuario">Registrar Nuevo Usuario</h1>
-<br>
-<!--INICIO Formulario-->
-<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" class="container-fluid text-center m-2 mt-4">
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4">
-      <label for="inputNombre" class="textCampos">Nombre</label>
-      <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Ingrese el Nombre" ngModel>
-    </div>
-    <div class="form-group col-4">
-      <label for="inputDireccion" class="textCampos">Domicilio</label>
-      <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" placeholder="Ingrese el Domicilio"ngModel>
-    </div>
-  </div>
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4 inputPosition">
-      <label for="inputApellido" class="textCampos">Apellido Paterno</label>
-      <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Ingrese el Apellido Paterno"ngModel>
-    </div>
-    <div class="form-group col-4 inputPosition">
-      <label for="inputTelefono" class="textCampos">Teléfono</label>
-      <input type="number" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="Ingrese el Teléfono"ngModel>
-    </div>
-  </div>
-  <div class="form-row row justify-content-around">
-    <div class="form-group col-4 inputPosition">
-      <label for="inputApellido1" class="textCampos">Apellido Materno</label>
-      <input type="text" class="form-control" id="inputApellido1" name="inputApellido1" placeholder="Ingrese el Apellido Materno"ngModel>
-    </div>
-    <div class="col-4 inputPosition d-grid gap-2">
-    <button type="submit" value ="submit" class="btn botonEstilo">Registrar</button>
-    </div>
-  </div>
-  
-</form>
-<!--FIN Formulario-->
-</div>
+<main>
+  <section id="register" class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
+          <h1 id="tituloUsuario" class="nuevoUsuario">Registrar Nuevo Usuario</h1>
+        </div>
+      </div>
+      <!-- INICIO FORMULARIO -->
 
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
+          <div class="card_register">
+            <div class="card">
+              <div class="card-body text-center" id="cont">
+                <form
+                  [formGroup]="formulario"
+                  id="formulario"
+                  (ngSubmit)="onEnviar($event, usuario)"
+                >
+                  <div class="form-group campo">
+                    <label class="color-title"> Nombre/s </label>
+                    <input
+                      type="text"
+                      formControlName="name"
+                      [(ngModel)]="usuario.name"
+                      [class.border-danger]="NombreValid"
+                      id="name"
+                      name="name"
+                      class="form-control"
+                      placeholder="Nombre"
+                      required
+                      #newName
+                    />
+                    <div *ngIf="Nombre?.errors && Nombre?.touched">
+                      <p
+                        *ngIf="Nombre?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El nombre es requerido.
+                      </p>
+                    </div>
+                    <div *ngIf="Nombre?.errors && Nombre?.touched">
+                      <p
+                        *ngIf="Nombre?.hasError('pattern')"
+                        class="text-danger"
+                      >
+                        Solo puede ingresar letras en este campo y al menos dos
+                        caracteres.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form-group campo">
+                    <label class="color-title"> Apellido/s </label>
+                    <input
+                      type="text"
+                      formControlName="last_name"
+                      [(ngModel)]="usuario.last_name"
+                      [class.border-danger]="ApellidoValid"
+                      id="last_name"
+                      name="last_name"
+                      class="form-control"
+                      placeholder="Apellido"
+                      required
+                      #newApellido
+                    />
+                    <div *ngIf="Apellido?.errors && Apellido?.touched">
+                      <p
+                        *ngIf="Apellido?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El apellido es requerido.
+                      </p>
+                    </div>
+
+                    <div *ngIf="Apellido?.errors && Apellido?.touched">
+                      <p
+                        *ngIf="Apellido?.hasError('pattern')"
+                        class="text-danger"
+                      >
+                        Solo puede ingresar letras en este campo y al menos dos
+                        caracteres.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form-group campo">
+                    <label class="color-title">Domicilio</label>
+                    <input
+                      type="text"
+                      formControlName="domicilio"
+                      [(ngModel)]="usuario.domicilio"
+                      [class.border-danger]="DomicilioValid"
+                      id="domicilio"
+                      name="domilio"
+                      class="form-control"
+                      placeholder="Domicilio"
+                      required
+                      #newUsuario
+                    />
+                    <div *ngIf="Domicilio?.errors && Domicilio?.touched">
+                      <p
+                        *ngIf="Domicilio?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El domicilio es requerido.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="form-group campo">
+                    <label class="color-title"> Teléfono </label>
+                    <input
+                      type="text"
+                      formControlName="tel"
+                      [(ngModel)]="usuario.tel"
+                      [class.border-danger]="TelefonoValid"
+                      id="tel"
+                      name="tel"
+                      class="form-control"
+                      placeholder="Telefono"
+                      required
+                      #newTelefono
+                    />
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p
+                        *ngIf="Telefono?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El teléfono es requerido.
+                      </p>
+                    </div>
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p
+                        *ngIf="Telefono?.hasError('pattern')"
+                        class="text-danger"
+                      >
+                        Solo puede ingresar números en este campo.
+                      </p>
+                    </div>
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p
+                        *ngIf="Telefono?.errors?.['minlength']"
+                        class="text-danger"
+                      >
+                        EL teléfono debe tener al menos 6 dígitos.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-4 inputPosition d-grid gap-2">
+                    <button
+                      type="submit"
+                      class="btn botonEstilo"
+                      id="envio"
+                      [disabled]="formulario.invalid"
+                    >
+                      Subir
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIN FORMULARIO -->
+    </div>
+  </section>
+</main>

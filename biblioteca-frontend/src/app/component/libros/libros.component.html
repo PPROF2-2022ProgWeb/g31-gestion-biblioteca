@@ -41,7 +41,7 @@
 
                 <ng-container matColumnDef="Disponibles">
                     <th mat-header-cell *matHeaderCellDef> Disponibles </th>
-                    <td mat-cell *matCellDef="let Libro"> {{Libro.disponibilidad}} </td>
+                    <td mat-cell *matCellDef="let Libro"> {{Libro.available}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="Ejemplares">
@@ -54,6 +54,21 @@
                     <td mat-cell *matCellDef="let Libro"> {{Libro.edit}} </td>
                 </ng-container>
 
+                <ng-container matColumnDef="Borrar">
+                    <th mat-header-cell *matHeaderCellDef ></th>
+                    <td mat-cell *matCellDef="let j"> <button mat-raised-button class="botonBorrar" color="warn" focusable="false"
+                        (click)="borrarFila(j.id)">
+                        Borrar
+                      </button> </td>
+                </ng-container>
+                <ng-container matColumnDef="Editar">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let j"> <button class="botonOpciones" mat-raised-button color="accent" focusable="false"
+                      [routerLink]="['../editar-libro', j.id]">
+                      Editar
+                  </button> </td>
+              </ng-container>
+
                 <tr mat-header-row *matHeaderRowDef="columnas"></tr>
                 <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
 
@@ -63,10 +78,9 @@
         </div>
     </div>
     <!-- botones -->
-    <div class="container-fluid row botonesUsuario">
+    <div class="container-fluid botonesUsuario">
         <div class="col-12 d-flex justify-content-end">
-            <button class="btn btn-lg m-1 botonEstilo" routerLink="/nuevo-libro">Nuevo</button>
-            <button class="btn btn-lg m-1 botonEstilo" onclick=alert()>Borrar</button>
+            <button class="btn btn-lg btn-block m-1 botonEstilo" routerLink="/nuevo-libro">Nuevo Libro</button>
         </div>
     </div>
 </section>

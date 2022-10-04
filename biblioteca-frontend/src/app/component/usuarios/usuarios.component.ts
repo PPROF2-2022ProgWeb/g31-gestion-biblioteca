@@ -2,6 +2,7 @@ import { UsuarioService } from './../../Services/usuario.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Usuario } from './../../Services/usuario.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -22,6 +23,8 @@ export class UsuariosComponent implements OnInit {
     'Dinero', //dinero de sanciones
     'Telefono',
     'Domicilio',
+    'Borrar',
+    'Editar',
   ];
 
   constructor(private usuarioService: UsuarioService) {}
@@ -32,8 +35,9 @@ export class UsuariosComponent implements OnInit {
   }
 
   cargarUsuario() {
-    this.usuarioService.ObtenerUsuarios().subscribe(data => {
+    this.usuarioService.ObtenerUsuarios().subscribe((data) => {
       this.dataSource.data = data;
+      console.log(data);
     });
   }
 
@@ -41,16 +45,16 @@ export class UsuariosComponent implements OnInit {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
   }
+
+  //funcion borrar
+
+  borrarFila(id: number) {
+    if (confirm("¿Realmente quiere borrar los datos?")) {
+      this.usuarioService.EliminarUsuario(id);
+      setTimeout(() => {
+        this.cargarUsuario();
+      },
+      300);
+    }
+  }
 }
-
-export interface Usuario {
-  id?: number;
-  sanctions?: number;
-  sanc_money?: number;
-  name?: string;
-  last_name?: string;
-  domicilio?: string;
-  tel?: string;
-}
-
-

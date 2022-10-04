@@ -1,4 +1,4 @@
-import { LibroService } from './../../Services/libro.service';
+import { Libro, LibroService } from './../../Services/libro.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -23,6 +23,8 @@ export class LibrosComponent implements OnInit {
     'Disponibles',
     'Ejemplares',
     'Edicion',
+    'Borrar',
+    'Editar'
   ];
 
   constructor(private libroService: LibroService) {}
@@ -50,16 +52,19 @@ export class LibrosComponent implements OnInit {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
   }
+
+  //funcion borrar
+
+  borrarFila(id: number) {
+    if (confirm("¿Realmente quiere borrar los datos?")) {
+      const prueba2 = this.libroService.EliminarLibro(id);
+      this.libroService.EliminarLibro(id);
+      setTimeout(() => {
+        this.cargarLibros();
+      },
+      300);
+    }
+  }
+
 }
 
-//constructor de Libros
-export interface Libro {
-  id?: number;
-  disponibilidad?: number;
-  title?: string;
-  autor?: string;
-  edit?: string;
-  idioma?: string;
-  categoria?: string;
-  ejemplares?: string;
-}
