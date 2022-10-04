@@ -1,10 +1,10 @@
 <div class="container-fluid m-2 mt-4 text-center">
-  <h1 class="nuevoUsuario">Registrar Nuevo Libro</h1>
+  <h1 id="tituloLibro" class="nuevoUsuario">Registrar Nuevo Libro</h1>
   <br>
   <!--INICIO Formulario-->
   <form [formGroup]="contactForm"  (ngSubmit)="onEnviar($event, libro)" class="container-fluid text-center m-2 mt-4">
     <div class="form-row row justify-content-around">
-      
+
     </div>
     <div class="form-row row justify-content-around">
       <div class="form-group col-4 inputPosition">
@@ -37,8 +37,8 @@
         <div *ngIf="contactForm.get('author')?.touched && contactForm.get('author')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
 
-      
-     
+
+
       <div class="form-group col-4 inputPosition">
         <label for="inputDisponibles" class="textCampos">Disponibles</label>
         <input type="number" class="form-control" id="available" name="available" placeholder="Cantidad" formControlName="available" [(ngModel)]="libro.available">
@@ -69,14 +69,13 @@
         <input type="text" class="form-control" id="lang" name="lang" placeholder="Ingrese Idioma del Libro" formControlName="lang" [(ngModel)]="libro.lang">
         <div *ngIf="contactForm.get('lang')?.touched && contactForm.get('lang')?.errors?.['required']" class="alert alert-danger"> ¡Este campo es requerido! </div>
       </div>
-      
+
     </div>
     <div class="col-4 inputPosition d-grid gap-2">
       <button type="submit" class="btn botonEstilo" [disabled]="contactForm.invalid">Subir</button>
       </div>
   </form>
-   
+
   <!--FIN Formulario-->
   </div>
-  
-  
+

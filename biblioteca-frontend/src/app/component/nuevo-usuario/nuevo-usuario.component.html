@@ -1,26 +1,29 @@
 <main>
   <section id="register" class="">
-  <div class="container">
+    <div class="container">
       <div class="row">
-          <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
-            <h1 class="nuevoUsuario">Registrar Nuevo Usuario</h1>
-          </div>
+        <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
+          <h1 id="tituloUsuario" class="nuevoUsuario">Registrar Nuevo Usuario</h1>
+        </div>
       </div>
-  <!-- INICIO FORMULARIO -->
+      <!-- INICIO FORMULARIO -->
 
-  <div class="row">
-      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
-        <div class="card_register">
-          <div class="card">
-            <div class="card-body text-center" id="cont">
-              <form [formGroup]="formulario" id="formulario" (ngSubmit)="onEnviar($event, usuario)">
-
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
+          <div class="card_register">
+            <div class="card">
+              <div class="card-body text-center" id="cont">
+                <form
+                  [formGroup]="formulario"
+                  id="formulario"
+                  (ngSubmit)="onEnviar($event, usuario)"
+                >
                   <div class="form-group campo">
                     <label class="color-title"> Nombre/s </label>
                     <input
                       type="text"
                       formControlName="name"
-                      [(ngModel)]="usuario.name" 
+                      [(ngModel)]="usuario.name"
                       [class.border-danger]="NombreValid"
                       id="name"
                       name="name"
@@ -29,19 +32,25 @@
                       required
                       #newName
                     />
-                    <div *ngIf="Nombre?.errors  && Nombre?.touched">
-                      <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                    <div *ngIf="Nombre?.errors && Nombre?.touched">
+                      <p
+                        *ngIf="Nombre?.hasError('required')"
+                        class="text-danger"
+                      >
                         El nombre es requerido.
                       </p>
                     </div>
-                    <div *ngIf="Nombre?.errors  && Nombre?.touched">
-                      <p *ngIf="Nombre?.hasError('pattern')" class="text-danger">
-                        Solo puede ingresar letras en este campo y al menos dos caracteres.
+                    <div *ngIf="Nombre?.errors && Nombre?.touched">
+                      <p
+                        *ngIf="Nombre?.hasError('pattern')"
+                        class="text-danger"
+                      >
+                        Solo puede ingresar letras en este campo y al menos dos
+                        caracteres.
                       </p>
                     </div>
                   </div>
-          
-          
+
                   <div class="form-group campo">
                     <label class="color-title"> Apellido/s </label>
                     <input
@@ -56,20 +65,27 @@
                       required
                       #newApellido
                     />
-                    <div *ngIf="Apellido?.errors  && Apellido?.touched">
-                      <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+                    <div *ngIf="Apellido?.errors && Apellido?.touched">
+                      <p
+                        *ngIf="Apellido?.hasError('required')"
+                        class="text-danger"
+                      >
                         El apellido es requerido.
                       </p>
                     </div>
 
-                    <div *ngIf="Apellido?.errors  && Apellido?.touched">
-                      <p *ngIf="Apellido?.hasError('pattern')" class="text-danger">
-                        Solo puede ingresar letras en este campo y al menos dos caracteres.
+                    <div *ngIf="Apellido?.errors && Apellido?.touched">
+                      <p
+                        *ngIf="Apellido?.hasError('pattern')"
+                        class="text-danger"
+                      >
+                        Solo puede ingresar letras en este campo y al menos dos
+                        caracteres.
                       </p>
-                    </div>                     
+                    </div>
                   </div>
-          
-                  <div class="form-group campo" >
+
+                  <div class="form-group campo">
                     <label class="color-title">Domicilio</label>
                     <input
                       type="text"
@@ -83,60 +99,73 @@
                       required
                       #newUsuario
                     />
-                    <div *ngIf="Domicilio?.errors  && Domicilio?.touched">
-                      <p *ngIf="Domicilio?.hasError('required')" class="text-danger">
+                    <div *ngIf="Domicilio?.errors && Domicilio?.touched">
+                      <p
+                        *ngIf="Domicilio?.hasError('required')"
+                        class="text-danger"
+                      >
                         El domicilio es requerido.
                       </p>
-                  </div>
-                  </div>
-                
-          
-                    <div class="form-group campo">
-                      <label class="color-title"> Teléfono </label>
-                      <input
-                        type="text"
-                        formControlName="tel"
-                        [(ngModel)]="usuario.tel"
-                        [class.border-danger]="TelefonoValid"
-                        id="tel"
-                        name="tel"
-                        class="form-control"
-                        placeholder="Telefono"
-                        required
-                        #newTelefono
-                      />
-                      <div *ngIf="Telefono?.errors  && Telefono?.touched">
-                        <p *ngIf="Telefono?.hasError('required')" class="text-danger">
-                          El teléfono es requerido.
-                        </p>
-                      </div>
-                      <div *ngIf="Telefono?.errors  && Telefono?.touched">
-                        <p *ngIf="Telefono?.hasError('pattern')" class="text-danger">
-                          Solo puede ingresar números en este campo.
-                        </p>
-                      </div>
-                      <div *ngIf="Telefono?.errors  && Telefono?.touched">
-                        <p *ngIf="Telefono?.errors?.['minlength']" class="text-danger">
-                        EL teléfono debe tener al menos 6 dígitos.
-                        </p>
-                      </div>
                     </div>
-      
-                    <div class="col-4 inputPosition d-grid gap-2">
-                      <button type="submit" class="btn botonEstilo" id="envio" [disabled]="formulario.invalid">Subir</button>
-                      </div>
+                  </div>
+
+                  <div class="form-group campo">
+                    <label class="color-title"> Teléfono </label>
+                    <input
+                      type="text"
+                      formControlName="tel"
+                      [(ngModel)]="usuario.tel"
+                      [class.border-danger]="TelefonoValid"
+                      id="tel"
+                      name="tel"
+                      class="form-control"
+                      placeholder="Telefono"
+                      required
+                      #newTelefono
+                    />
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p
+                        *ngIf="Telefono?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El teléfono es requerido.
+                      </p>
+                    </div>
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p
+                        *ngIf="Telefono?.hasError('pattern')"
+                        class="text-danger"
+                      >
+                        Solo puede ingresar números en este campo.
+                      </p>
+                    </div>
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p
+                        *ngIf="Telefono?.errors?.['minlength']"
+                        class="text-danger"
+                      >
+                        EL teléfono debe tener al menos 6 dígitos.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-4 inputPosition d-grid gap-2">
+                    <button
+                      type="submit"
+                      class="btn botonEstilo"
+                      id="envio"
+                      [disabled]="formulario.invalid"
+                    >
+                      Subir
+                    </button>
+                  </div>
                 </form>
-             
+              </div>
             </div>
           </div>
         </div>
       </div>
-  </div>
-  <!-- FIN FORMULARIO -->
-
-  
- </div>
-</section>
+      <!-- FIN FORMULARIO -->
+    </div>
+  </section>
 </main>
-
-

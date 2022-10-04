@@ -73,7 +73,7 @@
               mat-raised-button
               color="accent"
               focusable="false"
-              routerLink="/nuevo-usuario"
+              [routerLink]="['../editar-usuario', j.id]"
             >
               Editar
             </button>

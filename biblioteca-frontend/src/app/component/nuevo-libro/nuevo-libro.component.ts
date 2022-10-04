@@ -1,13 +1,8 @@
 import { Libro } from './../../Services/libro.service';
 import { LibroService } from './../../Services/libro.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-libro',
@@ -19,10 +14,12 @@ export class NuevoLibroComponent implements OnInit {
 
   libro: Libro = new Libro();
 
+  idLibro?: any;
+
   constructor(
     private fb: FormBuilder,
     private libroService: LibroService,
-    private router: Router
+    private route: ActivatedRoute
   ) {
     this.contactForm = this.fb.group({
       lang: ['', [Validators.required]],
@@ -39,27 +36,36 @@ export class NuevoLibroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.idLibro = this.route.snapshot.paramMap.get('id');
+    if (this.idLibro) {
+      this.libroService
+        .ObtenerLibroId(parseInt(this.idLibro))
+        .subscribe((data) => {
+          this.libro = data;
+          const contenedor: HTMLElement = document.getElementById(
+            'tituloLibro'
+          ) as HTMLElement;
+          contenedor.innerHTML = 'Editar Libro';
+        });
+    }
   }
 
-  onEnviar(event: Event, libro:Libro): void {
+  onEnviar(event: Event, libro: Libro): void {
     event.preventDefault;
-  
-    if (this.contactForm.valid)
-    {
-      console.log(libro);
-      this.libroService.onCrearRegistro(libro).subscribe(
-        data => {
-          alert("El libro ha sido agregado satisfactoriamente.");
-            //this.router.navigate(['/login'])
-          //}
-      })
-  }
-  else
-  {
-    this.contactForm.markAllAsTouched();
-  }
-  };
-  
 
-  //Prop
+    if (this.idLibro) {
+      this.libroService.EditarLibro(libro).subscribe((data) => {
+        alert('El libro ha sido editado satisfactoriamente.');
+      });
+    } else {
+      if (this.contactForm.valid) {
+        console.log(libro);
+        this.libroService.onCrearRegistro(libro).subscribe((data) => {
+          alert('El libro ha sido agregado satisfactoriamente.');
+        });
+      } else {
+        this.contactForm.markAllAsTouched();
+      }
+    }
+  }
 }

@@ -21,9 +21,9 @@ export class UsuarioService {
       );
   }
 
-  public ObtenerUsuarioId(id: number): Observable<Usuario[]> {
+  public ObtenerUsuarioId(id: number): Observable<Usuario> {
     return this.httpClient
-      .get<Usuario[]>('http://localhost:8080/ver/usuarios/{id}', {
+      .get<Usuario>('http://localhost:8080/ver/usuarios/' + id ,{
         responseType: 'json'
       })
       .pipe(
@@ -51,7 +51,7 @@ export class UsuarioService {
 
   public EditarUsuario(usuario: Usuario): Observable<Usuario> {
     return this.httpClient
-      .put<Usuario>('http://localhost:8080/ver/editarUser', {
+      .put<Usuario>('http://localhost:8080/editarUser', usuario,{
         responseType: 'json'
       })
       .pipe(

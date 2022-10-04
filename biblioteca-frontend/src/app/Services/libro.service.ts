@@ -20,9 +20,9 @@ export class LibroService {
       );
   }
 
-  public ObtenerLibroId(id: number): Observable<Libro[]> {
+  public ObtenerLibroId(id: number): Observable<Libro> {
     return this.httpClient
-      .get<Libro[]>('http://localhost:8080/ver/libros/{id}', {
+      .get<Libro>('http://localhost:8080/ver/verLibro/' + id ,{
         responseType: 'json'
       })
       .pipe(
@@ -50,7 +50,7 @@ export class LibroService {
 
   public EditarLibro(libro: Libro): Observable<Libro> {
     return this.httpClient
-      .put<Libro>('http://localhost:8080/ver/editarBook', {
+      .put<Libro>('http://localhost:8080/editarBook', libro, {
         responseType: 'json'
       })
       .pipe(

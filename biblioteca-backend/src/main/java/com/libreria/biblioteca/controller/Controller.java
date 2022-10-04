@@ -60,7 +60,7 @@ public class Controller {
     }
 
     @CrossOrigin(origins="")
-    @PostMapping("/editarUser")
+    @PutMapping("/editarUser")
     public void editarUser(@RequestBody Users usuario){usuServi.updateUser(usuario);}
 
 
@@ -96,7 +96,7 @@ public class Controller {
     }
 
     @CrossOrigin(origins="")
-    @PostMapping("/editarBook")
+    @PutMapping("/editarBook")
     public void editarLibro(@RequestBody Books libro){bookservi.updateBook(libro);}
 
     //--------------------------------------------------------------------------------

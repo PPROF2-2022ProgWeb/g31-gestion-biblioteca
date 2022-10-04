@@ -19,7 +19,9 @@ const routes: Routes = [
   {path: "prestamos", component: PrestamosComponent },
   {path: "nuevo-libro", component:NuevoLibroComponent},
   {path: "nuevo-usuario", component: NuevoUsuarioComponent},
-  
+  {path: "editar-usuario/:id", component: NuevoUsuarioComponent},
+  {path: "editar-libro/:id", component: NuevoLibroComponent}
+
 ];
 
 @NgModule({

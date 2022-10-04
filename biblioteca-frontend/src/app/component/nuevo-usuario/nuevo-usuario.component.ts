@@ -5,7 +5,7 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 import { Usuario } from 'src/app/Services/usuario.service';
 @Component({
@@ -17,11 +17,12 @@ export class NuevoUsuarioComponent implements OnInit {
   formulario: FormGroup;
 
   usuario: Usuario = new Usuario();
+  idUsuario?: any;
 
   constructor(
     private fb: FormBuilder,
     private usuarioService: UsuarioService,
-    private router: Router
+    private route: ActivatedRoute
   ) {
     this.formulario = this.fb.group({
       name: new FormControl('', [Validators.required]),
@@ -31,29 +32,39 @@ export class NuevoUsuarioComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.idUsuario = this.route.snapshot.paramMap.get('id');
+    if (this.idUsuario) {
+      this.usuarioService
+        .ObtenerUsuarioId(parseInt(this.idUsuario))
+        .subscribe((data) => {
+          this.usuario = data;
+          const element: HTMLElement = document.getElementById(
+            'tituloUsuario'
+          ) as HTMLElement;
+          element.innerHTML = 'Editar Usuario';
+        });
+    }
+  }
 
   onEnviar(event: Event, usuario: Usuario): void {
     event.preventDefault;
 
-    if (this.formulario.valid) {
-      console.log(usuario);
-      this.usuarioService.onCrearRegistro(usuario).subscribe((data) => {
-        alert('El usuario ha sido creado satisfactoriamente.');
-        //this.router.navigate(['/login'])
-        //}
+    if (this.idUsuario) {
+      this.usuarioService.EditarUsuario(this.usuario).subscribe((data) => {
+        alert('El usuario ha sido editado satisfactoriamente.');
       });
     } else {
-      this.formulario.markAllAsTouched();
+      if (this.formulario.valid) {
+        console.log(usuario);
+        this.usuarioService.onCrearRegistro(usuario).subscribe((data) => {
+          alert('El usuario ha sido creado satisfactoriamente.');
+        });
+      } else {
+        this.formulario.markAllAsTouched();
+      }
     }
   }
-
-  // editarUsario() {
-  //   const id = this.usuarioService.ObtenerUsuarioId;
-  //   this.usuarioService.EditarUsuario(id).subscribe((data) => {
-  //     //this.editarUsario = data;
-  //   });
-  // }
 
   //Propiedades del formulario
 
