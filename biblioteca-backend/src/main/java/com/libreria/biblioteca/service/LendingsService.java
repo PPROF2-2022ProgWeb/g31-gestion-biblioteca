@@ -239,6 +239,8 @@ public class LendingsService extends Component implements ILendingsService {
                 // Revisamos que el Libro exista
                 Optional<Books> liBusqueda = libro.findById(p.getBook_id());
                 if (liBusqueda.get().getId().equals(p.getBook_id())) {
+                    Statement stm = reg.createStatement();
+                    stm.executeUpdate("UPDATE `books` SET `available` = available-1 WHERE `id` = '"+ p.getBook_id() +"';");
                     lendingsRepository.save(p);
                 } else {
                     throw new Exception("El Prestamo que va a registrar no tiene Libro registrado");
