@@ -253,7 +253,7 @@ public class LendingsService extends Component implements ILendingsService {
             if(p.getDate_out() == null || p.getDia_devolucion_estimativo() == null) {
                 // Manejo de Fechas impuesto en consigna.
                 LocalDate hoy = LocalDate.now();
-                LocalDate entrega = LocalDate.now().plusDays( 5L);
+                LocalDate entrega = LocalDate.now().plusDays( 15L);
                 Date fechaInicio = Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 Date fechaEntrega = Date.from(entrega.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
