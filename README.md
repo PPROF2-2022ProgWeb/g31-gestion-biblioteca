@@ -8,7 +8,7 @@ Sistema básico para manejo de una biblioteca hecho en Java.
 ✔️ Gestión de libros, préstamos y devoluciones.\
 ✔️ Sanciones por tardanza en devoluciones.\
 ✔️ Registro de movimientos.\
-✔️ Tablas de búsqueda.\
+✔️ Tablas de búsqueda.
 
 ## Iniciación
 Importar el proyecto en un IDE Java e importar la base de datos.
